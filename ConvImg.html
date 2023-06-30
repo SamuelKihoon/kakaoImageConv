@@ -1,0 +1,269 @@
+
+
+<!-- HTML form with drag and drop area -->
+<meta charset="UTF-8">
+<form id="image-form">
+    <div id="drop-area">
+      <input type="file" id="image-input">
+      <p>카톡테마 이미지1.</p>
+    </div>
+    <button type="submit">Upload</button>
+
+  </form>
+
+
+  <form id="image-form2">
+    <div id="drop-area2">
+      <input type="file" id="image-input2">
+      <p>카톡테마 이미지2.</p>
+    </div>
+    <button type="submit2">Upload2</button>
+
+  </form>
+
+
+  <form id="image-form3">
+    <div id="drop-area3">
+      <input type="file" id="image-input3">
+      <p>카톡테마 이미지3.</p>
+    </div>
+    <button type="submit">Upload</button>
+
+  </form>
+
+ 
+
+    <!-- CSS styling for drop area -->
+  <style>
+  #drop-area{
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+  #drop-area.highlight {
+    background-color: #eee;
+  }
+
+
+  #drop-area2{
+    border: 2px dashed #ccc;
+    padding: 20px;
+    text-align: center;
+  }
+  #drop-area2.highlight {
+    background-color: #eee;
+  }
+
+
+
+
+ 
+
+  </style>
+  
+  <script>
+  const form = document.getElementById('image-form');
+  const input = document.getElementById('image-input');
+  const dropArea = document.getElementById('drop-area');
+
+
+  const form2 = document.getElementById('image-form2');
+  const input2 = document.getElementById('image-input2');
+  const dropArea2 = document.getElementById('drop-area2');
+
+
+
+
+
+
+
+  // IMAGE========================================================IMAGE
+  // Prevent default drag behaviors
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, e => {
+      e.preventDefault();
+      e.stopPropagation();
+    }, false);
+  });
+  
+  // Highlight drop area when image is dragged over it
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropArea.addEventListener(eventName, () => {
+      dropArea.classList.add('highlight');
+    }, false);
+  });
+  
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropArea.addEventListener(eventName, () => {
+      dropArea.classList.remove('highlight');
+    }, false);
+  });
+  
+  // Handle dropped image file
+  dropArea.addEventListener('drop', e => {
+    const files = e.dataTransfer.files;
+    if (files.length !== 1 || !files[0].type.startsWith('image/')) {
+      alert('Error: Please drop one image file.');
+      return;
+    }
+    input.files = files;
+  });
+  
+
+
+
+
+  // IMAGE========================================================IMAGE
+  // Prevent default drag behaviors
+  ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+    dropArea2.addEventListener(eventName, ed => {
+      ed.preventDefault();
+      ed.stopPropagation();
+    }, false);
+  });
+  
+  // Highlight drop area when image is dragged over it
+  ['dragenter', 'dragover'].forEach(eventName => {
+    dropArea2.addEventListener(eventName, () => {
+      dropArea2.classList.add('highlight');
+    }, false);
+  });
+  
+  ['dragleave', 'drop'].forEach(eventName => {
+    dropArea2.addEventListener(eventName, () => {
+      dropArea2.classList.remove('highlight');
+    }, false);
+  });
+  
+  // Handle dropped image file
+  dropArea2.addEventListener('drop', ed => {
+    const files2 = ed.dataTransfer.files;
+    if (files2.length !== 1 || !files2[0].type.startsWith('image/')) {
+      alert('Error: Please drop one image file.');
+      return;
+    }
+    input2.files = files2;
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // Handle form submission
+  form.addEventListener('submit', e => {
+
+
+    e.preventDefault();
+    const file = input.files[0];
+  
+    // Check if file is an image
+    if (!file.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+  
+    // Resize image to 300x300
+    const img = new Image();
+    const reader = new FileReader();
+    reader.onload = () => {
+      img.src = reader.result;
+      img.onload = () => {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = 300;
+        canvas.height = 300;
+        ctx.drawImage(img, 0, 0, 300, 300);
+        const resized_img = canvas.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name = 'imagenamekakaotalk_1.png';
+        const a = document.createElement('a');
+        a.href = resized_img;
+        a.download = new_name;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      };
+    };
+    reader.readAsDataURL(file);
+
+
+    
+  });
+
+
+
+
+
+
+ 
+
+
+  // Handle form submission
+  form2.addEventListener('submit2', ed => {
+
+    alert("adsdsaasd")
+
+ed.preventDefault();
+const file2 = input2.files[0];
+
+// Check if file is an image
+if (!file2.type.startsWith('image/')) {
+  alert('Error: File is not an image.');
+  return;
+}
+
+// Resize image to 300x300
+const img2 = new Image();
+const reader2 = new FileReader();
+reader2.onload = () => {
+  img2.src = reader2.result;
+  img2.onload = () => {
+    const canvas2 = document.createElement('canvas2');
+    const ctx2 = canvas2.getContext('2d');
+    canvas2.width = 300;
+    canvas2.height = 300;
+    ctx2.drawImage(img2, 0, 0, 300, 300);
+    const resized_img2 = canvas2.toDataURL('image/png');
+
+    // Save resized image as PNG
+    const new_name2 = 'imagenamekakaotalk_12.png';
+    const a2 = document.createElement('a2');
+    a2.href = resized_img2;
+    a2.download = new_name2;
+    document.body.appendChild(a2);
+    a2.click();
+    document.body.removeChild(a2);
+  };
+};
+reader2.readAsDataURL(file2);
+
+
+
+});
+
+  
+
+
+
+
+
+
+
+  </script>
