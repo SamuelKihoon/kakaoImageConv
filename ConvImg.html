@@ -1377,6 +1377,726 @@ form3.addEventListener('submit', ed => {
 
 
 
+// Handle form submission
+form4.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file4 = input4.files[0];
+
+  // Check if file is an image
+  if (!file4.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img4 = new Image();
+  const reader4 = new FileReader();
+  reader4.onload = () => {
+    img4.src = reader4.result;
+    img4.onload = () => {
+      const canvas4 = document.createElement('canvas');
+      const ctx4 = canvas4.getContext('2d');
+      canvas4.width = 300;
+      canvas4.height = 300;
+      ctx4.drawImage(img4, 0, 0, 300, 300);
+      const resized_img4 = canvas4.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name4 = 'imagenamekakaotalk_.png';
+      const a4 = document.createElement('a');
+      a4.href = resized_img4;
+      a4.download = new_name4;
+      document.body.appendChild(a4);
+      a4.click();
+      document.body.removeChild(a4);
+    };
+  };
+  reader4.readAsDataURL(file4);
+}); 
+
+// Handle form submission
+form5.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file5 = input5.files[0];
+
+  // Check if file is an image
+  if (!file5.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img5 = new Image();
+  const reader5 = new FileReader();
+  reader5.onload = () => {
+    img5.src = reader5.result;
+    img5.onload = () => {
+      const canvas5 = document.createElement('canvas');
+      const ctx5 = canvas5.getContext('2d');
+      canvas5.width = 300;
+      canvas5.height = 300;
+      ctx5.drawImage(img5, 0, 0, 300, 300);
+      const resized_img5 = canvas5.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name5 = 'imagenamekakaotalk_.png';
+      const a5 = document.createElement('a');
+      a5.href = resized_img5;
+      a5.download = new_name5;
+      document.body.appendChild(a5);
+      a5.click();
+      document.body.removeChild(a5);
+    };
+  };
+  reader5.readAsDataURL(file5);
+});
+
+// Handle form submission
+form5.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file5 = input5.files[0];
+
+  // Check if file is an image
+  if (!file5.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img5 = new Image();
+  const reader5 = new FileReader();
+  reader5.onload = () => {
+    img5.src = reader5.result;
+    img5.onload = () => {
+      const canvas5 = document.createElement('canvas');
+      const ctx5 = canvas5.getContext('2d');
+      canvas5.width = 300;
+      canvas5.height = 300;
+      ctx5.drawImage(img5, 0, 0, 300, 300);
+      const resized_img5 = canvas5.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name5 = 'imagenamekakaotalk_.png';
+      const a5 = document.createElement('a');
+      a5.href = resized_img5;
+      a5.download = new_name5;
+      document.body.appendChild(a5);
+      a5.click();
+      document.body.removeChild(a5);
+    };
+  };
+  reader5.readAsDataURL(file5);
+});
+
+// Handle form submission
+form6.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file6 = input6.files[0];
+
+  // Check if file is an image
+  if (!file6.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img6 = new Image();
+  const reader6 = new FileReader();
+  reader6.onload = () => {
+    img6.src = reader6.result;
+    img6.onload = () => {
+      const canvas6 = document.createElement('canvas');
+      const ctx6 = canvas6.getContext('2d');
+      canvas6.width = 300;
+      canvas6.height = 300;
+      ctx6.drawImage(img6, 0, 0, 300, 300);
+      const resized_img6 = canvas6.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name6 = 'imagenamekakaotalk_.png';
+      const a6 = document.createElement('a');
+      a6.href = resized_img6;
+      a6.download = new_name6;
+      document.body.appendChild(a6);
+      a6.click();
+      document.body.removeChild(a6);
+    };
+  };
+  reader6.readAsDataURL(file6);
+});
+
+// Handle form submission
+form7.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file7 = input7.files[0];
+
+  // Check if file is an image
+  if (!file7.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img7 = new Image();
+  const reader7 = new FileReader();
+  reader7.onload = () => {
+    img7.src = reader7.result;
+    img7.onload = () => {
+      const canvas7 = document.createElement('canvas');
+      const ctx7 = canvas7.getContext('2d');
+      canvas7.width = 300;
+      canvas7.height = 300;
+      ctx7.drawImage(img7, 0, 0, 300, 300);
+      const resized_img7 = canvas7.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name7 = 'imagenamekakaotalk_.png';
+      const a7 = document.createElement('a');
+      a7.href = resized_img7;
+      a7.download = new_name7;
+      document.body.appendChild(a7);
+      a7.click();
+      document.body.removeChild(a7);
+    };
+  };
+  reader7.readAsDataURL(file7);
+});
+
+// Handle form submission
+form8.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file8 = input8.files[0];
+
+  // Check if file is an image
+  if (!file8.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img8 = new Image();
+  const reader8 = new FileReader();
+  reader8.onload = () => {
+    img8.src = reader8.result;
+    img8.onload = () => {
+      const canvas8 = document.createElement('canvas');
+      const ctx8 = canvas8.getContext('2d');
+      canvas8.width = 300;
+      canvas8.height = 300;
+      ctx8.drawImage(img8, 0, 0, 300, 300);
+      const resized_img8 = canvas8.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name8 = 'imagenamekakaotalk_.png';
+      const a8 = document.createElement('a');
+      a8.href = resized_img8;
+      a8.download = new_name8;
+      document.body.appendChild(a8);
+      a8.click();
+      document.body.removeChild(a8);
+    };
+  };
+  reader8.readAsDataURL(file8);
+});
+
+// Handle form submission
+form9.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file9 = input9.files[0];
+
+  // Check if file is an image
+  if (!file9.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img9 = new Image();
+  const reader9 = new FileReader();
+  reader9.onload = () => {
+    img9.src = reader9.result;
+    img9.onload = () => {
+      const canvas9 = document.createElement('canvas');
+      const ctx9 = canvas9.getContext('2d');
+      canvas9.width = 300;
+      canvas9.height = 300;
+      ctx9.drawImage(img9, 0, 0, 300, 300);
+      const resized_img9 = canvas9.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name9 = 'imagenamekakaotalk_.png';
+      const a9 = document.createElement('a');
+      a9.href = resized_img9;
+      a9.download = new_name9;
+      document.body.appendChild(a9);
+      a9.click();
+      document.body.removeChild(a9);
+    };
+  };
+  reader9.readAsDataURL(file9);
+});
+ 
+// Handle form submission
+form10.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file10 = input10.files[0];
+
+  // Check if file is an image
+  if (!file10.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img10 = new Image();
+  const reader10 = new FileReader();
+  reader10.onload = () => {
+    img10.src = reader10.result;
+    img10.onload = () => {
+      const canvas10 = document.createElement('canvas');
+      const ctx10 = canvas10.getContext('2d');
+      canvas10.width = 300;
+      canvas10.height = 300;
+      ctx10.drawImage(img10, 0, 0, 300, 300);
+      const resized_img10 = canvas10.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name10 = 'imagenamekakaotalk_.png';
+      const a10 = document.createElement('a');
+      a10.href = resized_img10;
+      a10.download = new_name10;
+      document.body.appendChild(a10);
+      a10.click();
+      document.body.removeChild(a10);
+    };
+  };
+  reader10.readAsDataURL(file10);
+});
+
+// Handle form submission
+form11.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file11 = input11.files[0];
+
+  // Check if file is an image
+  if (!file11.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img11 = new Image();
+  const reader11 = new FileReader();
+  reader11.onload = () => {
+    img11.src = reader11.result;
+    img11.onload = () => {
+      const canvas11 = document.createElement('canvas');
+      const ctx11 = canvas11.getContext('2d');
+      canvas11.width = 300;
+      canvas11.height = 300;
+      ctx11.drawImage(img11, 0, 0, 300, 300);
+      const resized_img11 = canvas11.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name11 = 'imagenamekakaotalk_.png';
+      const a11 = document.createElement('a');
+      a11.href = resized_img11;
+      a11.download = new_name11;
+      document.body.appendChild(a11);
+      a11.click();
+      document.body.removeChild(a11);
+    };
+  };
+  reader11.readAsDataURL(file11);
+});
+ 
+// Handle form submission
+form12.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file12 = input12.files[0];
+
+  // Check if file is an image
+  if (!file12.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img12 = new Image();
+  const reader12 = new FileReader();
+  reader12.onload = () => {
+    img12.src = reader12.result;
+    img12.onload = () => {
+      const canvas12 = document.createElement('canvas');
+      const ctx12 = canvas12.getContext('2d');
+      canvas12.width = 300;
+      canvas12.height = 300;
+      ctx12.drawImage(img12, 0, 0, 300, 300);
+      const resized_img12 = canvas12.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name12 = 'imagenamekakaotalk_.png';
+      const a12 = document.createElement('a');
+      a12.href = resized_img12;
+      a12.download = new_name12;
+      document.body.appendChild(a12);
+      a12.click();
+      document.body.removeChild(a12);
+    };
+  };
+  reader12.readAsDataURL(file12);
+});
+
+// Handle form submission
+form13.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file13 = input13.files[0];
+
+  // Check if file is an image
+  if (!file13.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img13 = new Image();
+  const reader13 = new FileReader();
+  reader13.onload = () => {
+    img13.src = reader13.result;
+    img13.onload = () => {
+      const canvas13 = document.createElement('canvas');
+      const ctx13 = canvas13.getContext('2d');
+      canvas13.width = 300;
+      canvas13.height = 300;
+      ctx13.drawImage(img13, 0, 0, 300, 300);
+      const resized_img13 = canvas13.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name13 = 'imagenamekakaotalk_.png';
+      const a13 = document.createElement('a');
+      a13.href = resized_img13;
+      a13.download = new_name13;
+      document.body.appendChild(a13);
+      a13.click();
+      document.body.removeChild(a13);
+    };
+  };
+  reader13.readAsDataURL(file13);
+});
+
+// Handle form submission
+form14.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file14 = input14.files[0];
+
+  // Check if file is an image
+  if (!file14.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img14 = new Image();
+  const reader14 = new FileReader();
+  reader14.onload = () => {
+    img14.src = reader14.result;
+    img14.onload = () => {
+      const canvas14 = document.createElement('canvas');
+      const ctx14 = canvas14.getContext('2d');
+      canvas14.width = 300;
+      canvas14.height = 300;
+      ctx14.drawImage(img14, 0, 0, 300, 300);
+      const resized_img14 = canvas14.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name14 = 'imagenamekakaotalk_.png';
+      const a14 = document.createElement('a');
+      a14.href = resized_img14;
+      a14.download = new_name14;
+      document.body.appendChild(a14);
+      a14.click();
+      document.body.removeChild(a14);
+    };
+  };
+  reader14.readAsDataURL(file14);
+});
+
+// Handle form submission
+form15.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file15 = input15.files[0];
+
+  // Check if file is an image
+  if (!file15.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img15 = new Image();
+  const reader15 = new FileReader();
+  reader15.onload = () => {
+    img15.src = reader15.result;
+    img15.onload = () => {
+      const canvas15 = document.createElement('canvas');
+      const ctx15 = canvas15.getContext('2d');
+      canvas15.width = 300;
+      canvas15.height = 300;
+      ctx15.drawImage(img15, 0, 0, 300, 300);
+      const resized_img15 = canvas15.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name15 = 'imagenamekakaotalk_.png';
+      const a15 = document.createElement('a');
+      a15.href = resized_img15;
+      a15.download = new_name15;
+      document.body.appendChild(a15);
+      a15.click();
+      document.body.removeChild(a15);
+    };
+  };
+  reader15.readAsDataURL(file15);
+});
+
+// Handle form submission
+form16.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file16 = input16.files[0];
+
+  // Check if file is an image
+  if (!file16.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img16 = new Image();
+  const reader16 = new FileReader();
+  reader16.onload = () => {
+    img16.src = reader16.result;
+    img16.onload = () => {
+      const canvas16 = document.createElement('canvas');
+      const ctx16 = canvas16.getContext('2d');
+      canvas16.width = 300;
+      canvas16.height = 300;
+      ctx16.drawImage(img16, 0, 0, 300, 300);
+      const resized_img16 = canvas16.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name16 = 'imagenamekakaotalk_.png';
+      const a16 = document.createElement('a');
+      a16.href = resized_img16;
+      a16.download = new_name16;
+      document.body.appendChild(a16);
+      a16.click();
+      document.body.removeChild(a16);
+    };
+  };
+  reader16.readAsDataURL(file16);
+});
+
+// Handle form submission
+form17.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file17 = input17.files[0];
+
+  // Check if file is an image
+  if (!file17.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img17 = new Image();
+  const reader17 = new FileReader();
+  reader17.onload = () => {
+    img17.src = reader17.result;
+    img17.onload = () => {
+      const canvas17 = document.createElement('canvas');
+      const ctx17 = canvas17.getContext('2d');
+      canvas17.width = 300;
+      canvas17.height = 300;
+      ctx17.drawImage(img17, 0, 0, 300, 300);
+      const resized_img17 = canvas17.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name17 = 'imagenamekakaotalk_.png';
+      const a17 = document.createElement('a');
+      a17.href = resized_img17;
+      a17.download = new_name17;
+      document.body.appendChild(a17);
+      a17.click();
+      document.body.removeChild(a17);
+    };
+  };
+  reader17.readAsDataURL(file17);
+});
+
+// Handle form submission
+form18.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file18 = input18.files[0];
+
+  // Check if file is an image
+  if (!file18.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img18 = new Image();
+  const reader18 = new FileReader();
+  reader18.onload = () => {
+    img18.src = reader18.result;
+    img18.onload = () => {
+      const canvas18 = document.createElement('canvas');
+      const ctx18 = canvas18.getContext('2d');
+      canvas18.width = 300;
+      canvas18.height = 300;
+      ctx18.drawImage(img18, 0, 0, 300, 300);
+      const resized_img18 = canvas18.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name18 = 'imagenamekakaotalk_.png';
+      const a18 = document.createElement('a');
+      a18.href = resized_img18;
+      a18.download = new_name18;
+      document.body.appendChild(a18);
+      a18.click();
+      document.body.removeChild(a18);
+    };
+  };
+  reader18.readAsDataURL(file18);
+});
+
+// Handle form submission
+form19.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file19 = input19.files[0];
+
+  // Check if file is an image
+  if (!file19.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img19 = new Image();
+  const reader19 = new FileReader();
+  reader19.onload = () => {
+    img19.src = reader19.result;
+    img19.onload = () => {
+      const canvas19 = document.createElement('canvas');
+      const ctx19 = canvas19.getContext('2d');
+      canvas19.width = 300;
+      canvas19.height = 300;
+      ctx19.drawImage(img19, 0, 0, 300, 300);
+      const resized_img19 = canvas19.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name19 = 'imagenamekakaotalk_.png';
+      const a19 = document.createElement('a');
+      a19.href = resized_img19;
+      a19.download = new_name19;
+      document.body.appendChild(a19);
+      a19.click();
+      document.body.removeChild(a19);
+    };
+  };
+  reader19.readAsDataURL(file19);
+});
+
+// Handle form submission
+form20.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file20 = input20.files[0];
+
+  // Check if file is an image
+  if (!file20.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img20 = new Image();
+  const reader20 = new FileReader();
+  reader20.onload = () => {
+    img20.src = reader20.result;
+    img20.onload = () => {
+      const canvas20 = document.createElement('canvas');
+      const ctx20 = canvas20.getContext('2d');
+      canvas20.width = 300;
+      canvas20.height = 300;
+      ctx20.drawImage(img20, 0, 0, 300, 300);
+      const resized_img20 = canvas20.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name20 = 'imagenamekakaotalk_.png';
+      const a20 = document.createElement('a');
+      a20.href = resized_img20;
+      a20.download = new_name20;
+      document.body.appendChild(a20);
+      a20.click();
+      document.body.removeChild(a20);
+    };
+  };
+  reader20.readAsDataURL(file20);
+});
+
+// Handle form submission
+form21.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file21 = input21.files[0];
+
+  // Check if file is an image
+  if (!file21.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img21 = new Image();
+  const reader21 = new FileReader();
+  reader21.onload = () => {
+    img21.src = reader21.result;
+    img21.onload = () => {
+      const canvas21 = document.createElement('canvas');
+      const ctx21 = canvas21.getContext('2d');
+      canvas21.width = 300;
+      canvas21.height = 300;
+      ctx21.drawImage(img21, 0, 0, 300, 300);
+      const resized_img21 = canvas21.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name21 = 'imagenamekakaotalk_.png';
+      const a21 = document.createElement('a');
+      a21.href = resized_img21;
+      a21.download = new_name21;
+      document.body.appendChild(a21);
+      a21.click();
+      document.body.removeChild(a21);
+    };
+  };
+  reader21.readAsDataURL(file21);
+});
+
+// Handle form submission
+form22.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file22 = input22.files[0];
+
+  // Check if file is an image
+  if (!file22.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img22 = new Image();
+  const reader22 = new FileReader();
+  reader22.onload = () => {
+    img22.src = reader22.result;
+    img22.onload = () => {
+      const canvas22 = document.createElement('canvas');
+      const ctx22 = canvas22.getContext('2d');
+      canvas22.width = 300;
+      canvas22.height = 300;
+      ctx22.drawImage(img22, 0, 0, 300, 300);
+      const resized_img22 = canvas22.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name22 = 'imagenamekakaotalk_.png';
+      const a22 = document.createElement('a');
+      a22.href = resized_img22;
+      a22.download = new_name22;
+      document.body.appendChild(a22);
+      a22.click();
+      document.body.removeChild(a22);
+    };
+  };
+  reader22.readAsDataURL(file22);
+});
+
 
 
   </script>
