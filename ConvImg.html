@@ -21,16 +21,7 @@
 
   </form>
 
-
-  <form id="image-form3">
-    <div id="drop-area3">
-      <input type="file" id="image-input3">
-      <p>카톡테마 이미지3.</p>
-    </div>
-    <button type="submit">Upload</button>
-
-  </form>
-
+ 
  
 
     <!-- CSS styling for drop area -->
@@ -53,12 +44,7 @@
   #drop-area2.highlight {
     background-color: #eee;
   }
-
-
-
-
  
-
   </style>
   
   <script>
@@ -213,52 +199,42 @@
 
 
  
+// Handle form submission
+form2.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file2 = input2.files[0];
 
+  // Check if file is an image
+  if (!file2.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
 
-  // Handle form submission
-  form2.addEventListener('submit2', ed => {
+  // Resize image to 300x300
+  const img2 = new Image();
+  const reader2 = new FileReader();
+  reader2.onload = () => {
+    img2.src = reader2.result;
+    img2.onload = () => {
+      const canvas2 = document.createElement('canvas');
+      const ctx2 = canvas2.getContext('2d');
+      canvas2.width = 300;
+      canvas2.height = 300;
+      ctx2.drawImage(img2, 0, 0, 300, 300);
+      const resized_img2 = canvas2.toDataURL('image/png');
 
-    alert("adsdsaasd")
-
-ed.preventDefault();
-const file2 = input2.files[0];
-
-// Check if file is an image
-if (!file2.type.startsWith('image/')) {
-  alert('Error: File is not an image.');
-  return;
-}
-
-// Resize image to 300x300
-const img2 = new Image();
-const reader2 = new FileReader();
-reader2.onload = () => {
-  img2.src = reader2.result;
-  img2.onload = () => {
-    const canvas2 = document.createElement('canvas2');
-    const ctx2 = canvas2.getContext('2d');
-    canvas2.width = 300;
-    canvas2.height = 300;
-    ctx2.drawImage(img2, 0, 0, 300, 300);
-    const resized_img2 = canvas2.toDataURL('image/png');
-
-    // Save resized image as PNG
-    const new_name2 = 'imagenamekakaotalk_12.png';
-    const a2 = document.createElement('a2');
-    a2.href = resized_img2;
-    a2.download = new_name2;
-    document.body.appendChild(a2);
-    a2.click();
-    document.body.removeChild(a2);
+      // Save resized image as PNG
+      const new_name2 = 'imagenamekakaotalk_12.png';
+      const a2 = document.createElement('a');
+      a2.href = resized_img2;
+      a2.download = new_name2;
+      document.body.appendChild(a2);
+      a2.click();
+      document.body.removeChild(a2);
+    };
   };
-};
-reader2.readAsDataURL(file2);
-
-
-
-});
-
-  
+  reader2.readAsDataURL(file2);
+}); 
 
 
 
