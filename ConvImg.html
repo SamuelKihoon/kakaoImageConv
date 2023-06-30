@@ -516,6 +516,10 @@ const dropArea22 = document.getElementById('drop-area22');
 
 
 
+
+
+
+
   // IMAGE========================================================IMAGE
   // Prevent default drag behaviors
   ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
@@ -585,9 +589,648 @@ const dropArea22 = document.getElementById('drop-area22');
   });
 
 
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea3.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea3.addEventListener(eventName, () => {
+    dropArea3.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea3.addEventListener(eventName, () => {
+    dropArea3.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea3.addEventListener('drop', ed => {
+  const files3 = ed.dataTransfer.files;
+  if (files3.length !== 1 || !files3[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input3.files = files3;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea4.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea4.addEventListener(eventName, () => {
+    dropArea4.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea4.addEventListener(eventName, () => {
+    dropArea4.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea4.addEventListener('drop', ed => {
+  const files4 = ed.dataTransfer.files;
+  if (files4.length !== 1 || !files4[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input4.files = files4;
+});
 
 
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea5.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
 
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea5.addEventListener(eventName, () => {
+    dropArea5.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea5.addEventListener(eventName, () => {
+    dropArea5.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea5.addEventListener('drop', ed => {
+  const files5 = ed.dataTransfer.files;
+  if (files5.length !== 1 || !files5[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input5.files = files5;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea6.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea6.addEventListener(eventName, () => {
+    dropArea6.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea6.addEventListener(eventName, () => {
+    dropArea6.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea6.addEventListener('drop', ed => {
+  const files6 = ed.dataTransfer.files;
+  if (files6.length !== 1 || !files6[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input6.files = files6;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea7.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea7.addEventListener(eventName, () => {
+    dropArea7.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea7.addEventListener(eventName, () => {
+    dropArea7.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea7.addEventListener('drop', ed => {
+  const files7 = ed.dataTransfer.files;
+  if (files7.length !== 1 || !files7[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input7.files = files7;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea8.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea8.addEventListener(eventName, () => {
+    dropArea8.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea8.addEventListener(eventName, () => {
+    dropArea8.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea8.addEventListener('drop', ed => {
+  const files8 = ed.dataTransfer.files;
+  if (files8.length !== 1 || !files8[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input8.files = files8;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea9.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea9.addEventListener(eventName, () => {
+    dropArea9.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea9.addEventListener(eventName, () => {
+    dropArea9.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea9.addEventListener('drop', ed => {
+  const files9 = ed.dataTransfer.files;
+  if (files9.length !== 1 || !files9[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input9.files = files9;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea10.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea10.addEventListener(eventName, () => {
+    dropArea10.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea10.addEventListener(eventName, () => {
+    dropArea10.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea10.addEventListener('drop', ed => {
+  const files10 = ed.dataTransfer.files;
+  if (files10.length !== 1 || !files10[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input10.files = files10;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea11.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea11.addEventListener(eventName, () => {
+    dropArea11.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea11.addEventListener(eventName, () => {
+    dropArea11.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea11.addEventListener('drop', ed => {
+  const files11 = ed.dataTransfer.files;
+  if (files11.length !== 1 || !files11[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input11.files = files11;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea12.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea12.addEventListener(eventName, () => {
+    dropArea12.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea12.addEventListener(eventName, () => {
+    dropArea12.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea12.addEventListener('drop', ed => {
+  const files12 = ed.dataTransfer.files;
+  if (files12.length !== 1 || !files12[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input12.files = files12;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea13.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea13.addEventListener(eventName, () => {
+    dropArea13.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea13.addEventListener(eventName, () => {
+    dropArea13.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea13.addEventListener('drop', ed => {
+  const files13 = ed.dataTransfer.files;
+  if (files13.length !== 1 || !files13[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input13.files = files13;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea14.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea14.addEventListener(eventName, () => {
+    dropArea14.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea14.addEventListener(eventName, () => {
+    dropArea14.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea14.addEventListener('drop', ed => {
+  const files14 = ed.dataTransfer.files;
+  if (files14.length !== 1 || !files14[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input14.files = files14;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea15.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea15.addEventListener(eventName, () => {
+    dropArea15.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea15.addEventListener(eventName, () => {
+    dropArea15.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea15.addEventListener('drop', ed => {
+  const files15 = ed.dataTransfer.files;
+  if (files15.length !== 1 || !files15[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input15.files = files15;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea16.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea16.addEventListener(eventName, () => {
+    dropArea16.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea16.addEventListener(eventName, () => {
+    dropArea16.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea16.addEventListener('drop', ed => {
+  const files16 = ed.dataTransfer.files;
+  if (files16.length !== 1 || !files16[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input16.files = files16;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea17.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea17.addEventListener(eventName, () => {
+    dropArea17.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea17.addEventListener(eventName, () => {
+    dropArea17.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea17.addEventListener('drop', ed => {
+  const files17 = ed.dataTransfer.files;
+  if (files17.length !== 1 || !files17[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input17.files = files17;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea18.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea18.addEventListener(eventName, () => {
+    dropArea18.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea18.addEventListener(eventName, () => {
+    dropArea18.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea18.addEventListener('drop', ed => {
+  const files18 = ed.dataTransfer.files;
+  if (files18.length !== 1 || !files18[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input18.files = files18;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea19.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea19.addEventListener(eventName, () => {
+    dropArea19.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea19.addEventListener(eventName, () => {
+    dropArea19.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea19.addEventListener('drop', ed => {
+  const files19 = ed.dataTransfer.files;
+  if (files19.length !== 1 || !files19[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input19.files = files19;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea20.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea20.addEventListener(eventName, () => {
+    dropArea20.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea20.addEventListener(eventName, () => {
+    dropArea20.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea20.addEventListener('drop', ed => {
+  const files20 = ed.dataTransfer.files;
+  if (files20.length !== 1 || !files20[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input20.files = files20;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea21.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea21.addEventListener(eventName, () => {
+    dropArea21.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea21.addEventListener(eventName, () => {
+    dropArea21.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea21.addEventListener('drop', ed => {
+  const files21 = ed.dataTransfer.files;
+  if (files21.length !== 1 || !files21[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input21.files = files21;
+});
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea22.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea22.addEventListener(eventName, () => {
+    dropArea22.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea22.addEventListener(eventName, () => {
+    dropArea22.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea22.addEventListener('drop', ed => {
+  const files22 = ed.dataTransfer.files;
+  if (files22.length !== 1 || !files22[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input22.files = files22;
+});
+
+// IMAGE========================================================IMAGE
 
 
 
@@ -689,6 +1332,47 @@ form2.addEventListener('submit', ed => {
   reader2.readAsDataURL(file2);
 }); 
 
+
+
+
+
+
+
+// Handle form submission
+form3.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file3 = input3.files[0];
+
+  // Check if file is an image
+  if (!file3.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image to 300x300
+  const img3 = new Image();
+  const reader3 = new FileReader();
+  reader3.onload = () => {
+    img3.src = reader3.result;
+    img3.onload = () => {
+      const canvas3 = document.createElement('canvas');
+      const ctx3 = canvas3.getContext('2d');
+      canvas3.width = 300;
+      canvas3.height = 300;
+      ctx3.drawImage(img3, 0, 0, 300, 300);
+      const resized_img3 = canvas3.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name3 = 'imagenamekakaotalk_12.png';
+      const a3 = document.createElement('a');
+      a3.href = resized_img3;
+      a3.download = new_name3;
+      document.body.appendChild(a3);
+      a3.click();
+      document.body.removeChild(a3);
+    };
+  };
+  reader3.readAsDataURL(file3);
+}); 
 
 
 
