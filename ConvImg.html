@@ -2,6 +2,11 @@
 
 <!-- HTML form with drag and drop area -->
 <meta charset="UTF-8">
+
+<button id="kingButton" onclick="clickAllButtons()">The King</button>
+
+
+
 <form id="image-form">
     <div id="drop-area">
       <input type="file" id="image-input">
@@ -37,7 +42,6 @@
   
 
 
-  <button id="kingButton" onclick="clickAllButtons()">The King</button>
 
 
 
@@ -126,7 +130,39 @@
   <button type="submit14">Upload14</button>
 </form>
 
+<form id="image-form14e">
+  <div id="drop-area14e">
+    <input type="file" id="image-input14e">
+    <p>BT6.</p>
+  </div>
+  <button type="submit14e">Upload14e</button>
+</form>
 
+<form id="image-form14e2">
+  <div id="drop-area14e2">
+    <input type="file" id="image-input14e2">
+    <p>BT6+.</p>
+  </div>
+  <button type="submit14e2">Upload14e2</button>
+</form>
+
+<form id="image-form14b">
+  <div id="drop-area14b">
+    <input type="file" id="image-input14b">
+    <p>BT7.</p>
+  </div>
+  <button type="submit14b">Upload14b</button>
+</form>
+
+<form id="image-form14b1">
+  <div id="drop-area14b1">
+    <input type="file" id="image-input14b1">
+    <p>BT7+.</p>
+  </div>
+  <button type="submit14b1">Upload14b1</button>
+</form>
+
+ 
 
 
 
@@ -339,6 +375,47 @@
   background-color: #eee;
 }
 
+#drop-area14e {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+#drop-area14e.highlight {
+  background-color: #eee;
+}
+
+#drop-area14e2 {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+#drop-area14e2.highlight {
+  background-color: #eee;
+}
+
+#drop-area14b {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+#drop-area14b.highlight {
+  background-color: #eee;
+}
+
+#drop-area14b1 {
+  border: 2px dashed #ccc;
+  padding: 20px;
+  text-align: center;
+}
+
+#drop-area14b1.highlight {
+  background-color: #eee;
+}
+
+
 #drop-area15 {
   border: 2px dashed #ccc;
   padding: 20px;
@@ -480,6 +557,23 @@ const form14 = document.getElementById('image-form14');
 const input14 = document.getElementById('image-input14');
 const dropArea14 = document.getElementById('drop-area14');
 
+const form14e = document.getElementById('image-form14e');
+const input14e = document.getElementById('image-input14e');
+const dropArea14e = document.getElementById('drop-area14e');
+
+const form14e2 = document.getElementById('image-form14e2');
+const input14e2 = document.getElementById('image-input14e2');
+const dropArea14e2 = document.getElementById('drop-area14e2');
+
+
+const form14b = document.getElementById('image-form14b');
+const input14b = document.getElementById('image-input14b');
+const dropArea14b = document.getElementById('drop-area14b');
+
+const form14b1 = document.getElementById('image-form14b1');
+const input14b1 = document.getElementById('image-input14b1');
+const dropArea14b1 = document.getElementById('drop-area14b1');
+ 
 const form15 = document.getElementById('image-form15');
 const input15 = document.getElementById('image-input15');
 const dropArea15 = document.getElementById('drop-area15');
@@ -972,6 +1066,139 @@ dropArea14.addEventListener('drop', ed => {
   }
   input14.files = files14;
 });
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea14e.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea14e.addEventListener(eventName, () => {
+    dropArea14e.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea14e.addEventListener(eventName, () => {
+    dropArea14e.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea14e.addEventListener('drop', ed => {
+  const files14e = ed.dataTransfer.files;
+  if (files14e.length !== 1 || !files14e[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input14e.files = files14e;
+});
+
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea14e2.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea14e2.addEventListener(eventName, () => {
+    dropArea14e2.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea14e2.addEventListener(eventName, () => {
+    dropArea14e2.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea14e2.addEventListener('drop', ed => {
+  const files14e2 = ed.dataTransfer.files;
+  if (files14e2.length !== 1 || !files14e2[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input14e2.files = files14e2;
+});
+
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea14b.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea14b.addEventListener(eventName, () => {
+    dropArea14b.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea14b.addEventListener(eventName, () => {
+    dropArea14b.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea14b.addEventListener('drop', ed => {
+  const files14b = ed.dataTransfer.files;
+  if (files14b.length !== 1 || !files14b[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input14b.files = files14b;
+});
+
+
+
+// IMAGE========================================================IMAGE
+// Prevent default drag behaviors
+['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+  dropArea14b1.addEventListener(eventName, ed => {
+    ed.preventDefault();
+    ed.stopPropagation();
+  }, false);
+});
+
+// Highlight drop area when image is dragged over it
+['dragenter', 'dragover'].forEach(eventName => {
+  dropArea14b1.addEventListener(eventName, () => {
+    dropArea14b1.classList.add('highlight');
+  }, false);
+});
+
+['dragleave', 'drop'].forEach(eventName => {
+  dropArea14b1.addEventListener(eventName, () => {
+    dropArea14b1.classList.remove('highlight');
+  }, false);
+});
+
+// Handle dropped image file
+dropArea14b1.addEventListener('drop', ed => {
+  const files14b1 = ed.dataTransfer.files;
+  if (files14b1.length !== 1 || !files14b1[0].type.startsWith('image/')) {
+    alert('Error: Please drop one image file.');
+    return;
+  }
+  input14b1.files = files14b1;
+});
+
 
 // IMAGE========================================================IMAGE
 // Prevent default drag behaviors
