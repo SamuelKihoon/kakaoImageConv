@@ -37,6 +37,9 @@
   
 
 
+  <button id="kingButton" onclick="clickAllButtons()">The King</button>
+
+
 
  
 
@@ -2237,3 +2240,30 @@ form22.addEventListener('submit', ed => {
 
 
   </script>
+
+
+<script>
+  // 버튼을 클릭하는 함수를 정의합니다
+  function buttonClick(button) {
+    button.click();
+  }
+
+  // 모든 버튼을 한 번에 클릭하는 함수를 정의합니다
+  function clickAllButtons() {
+    const buttonTypes = ['submit', 'submit2', 'submit3', 'submit4' , 'submit5' , 'submit6' , 'submit7' , 'submit8' , 'submit9' , 'submit10' , 'submit11' , 'submit12' , 'submit13' , 'submit14' , 'submit15' , 'submit16' , 'submit17' , 'submit18' , 'submit19' , 'submit20' , 'submit21' , 'submit22' ];
+
+    // 모든 버튼들을 순회하며 클릭하도록 처리합니다
+    buttonTypes.forEach(type => {
+      const button = document.querySelector(`button[type="${type}"]`);
+      if (button) {
+        buttonClick(button);
+      }
+    });
+  }
+
+  // "The King" 버튼을 클릭하면 다른 버튼들도 클릭하도록 이벤트를 추가합니다
+  const kingButton = document.getElementById('kingButton');
+  if (kingButton) {
+    kingButton.addEventListener('click', clickAllButtons);
+  }
+</script>
