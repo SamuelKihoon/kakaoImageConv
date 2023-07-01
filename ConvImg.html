@@ -81,29 +81,19 @@
     <button type="submit9">Upload9</button>
   </form>
 
-  <form id="image-form10">
-    <div id="drop-area10">
-      <input type="file" id="image-input10">
-      <p>BT3+.</p>
-    </div>
-    <button type="submit10">Upload10</button>
-  </form>
-  
 
 <form id="image-form10">
   <div id="drop-area10">
     <input type="file" id="image-input10">
-    <p>BT4.</p>
+    <p>BT3+</p>
   </div>
   <button type="submit10">Upload10</button>
 </form>
-
-<!-- 중간 생략 -->
-
+ 
 <form id="image-form11">
   <div id="drop-area11">
     <input type="file" id="image-input11">
-    <p>BT4+.</p>
+    <p>BT4</p>
   </div>
   <button type="submit11">Upload11</button>
 </form>
@@ -111,7 +101,7 @@
 <form id="image-form12">
   <div id="drop-area12">
     <input type="file" id="image-input12">
-    <p>BT5.</p>
+    <p>BT4+</p>
   </div>
   <button type="submit12">Upload12</button>
 </form>
@@ -119,23 +109,29 @@
 <form id="image-form13">
   <div id="drop-area13">
     <input type="file" id="image-input13">
-    <p>BT5+.</p>
+    <p>BT5.</p>
   </div>
   <button type="submit13">Upload13</button>
 </form>
 
+
 <form id="image-form14">
   <div id="drop-area14">
     <input type="file" id="image-input14">
-    <p>PassCODE1.</p>
+    <p>BT5+.</p>
   </div>
   <button type="submit14">Upload14</button>
 </form>
 
+
+
+
+
+
 <form id="image-form15">
   <div id="drop-area15">
     <input type="file" id="image-input15">
-    <p>PassCODE1+.</p>
+    <p>PassCODE1.</p>
   </div>
   <button type="submit15">Upload15</button>
 </form>
@@ -143,7 +139,7 @@
 <form id="image-form16">
   <div id="drop-area16">
     <input type="file" id="image-input16">
-    <p>PassCODE2.</p>
+    <p>PassCODE1+.</p>
   </div>
   <button type="submit16">Upload16</button>
 </form>
@@ -151,7 +147,7 @@
 <form id="image-form17">
   <div id="drop-area17">
     <input type="file" id="image-input17">
-    <p>PassCODE2+.</p>
+    <p>PassCODE2.</p>
   </div>
   <button type="submit17">Upload17</button>
 </form>
@@ -159,7 +155,7 @@
 <form id="image-form18">
   <div id="drop-area18">
     <input type="file" id="image-input18">
-    <p>PassCODE3.</p>
+    <p>PassCODE2+.</p>
   </div>
   <button type="submit18">Upload18</button>
 </form>
@@ -167,7 +163,7 @@
 <form id="image-form19">
   <div id="drop-area19">
     <input type="file" id="image-input19">
-    <p>PassCODE3+.</p>
+    <p>PassCODE3.</p>
   </div>
   <button type="submit19">Upload19</button>
 </form>
@@ -175,7 +171,7 @@
 <form id="image-form20">
   <div id="drop-area20">
     <input type="file" id="image-input20">
-    <p>PassCODE4.</p>
+    <p>PassCODE3+.</p>
   </div>
   <button type="submit20">Upload20</button>
 </form>
@@ -183,7 +179,7 @@
 <form id="image-form21">
   <div id="drop-area21">
     <input type="file" id="image-input21">
-    <p>PassCODE4+.</p>
+    <p>PassCODE4.</p>
   </div>
   <button type="submit21">Upload21</button>
 </form>
@@ -191,7 +187,7 @@
 <form id="image-form22">
   <div id="drop-area22">
     <input type="file" id="image-input22">
-    <p>icon</p>
+    <p>PassCODE4+</p>
   </div>
   <button type="submit22">Upload22</button>
 </form>
@@ -1268,13 +1264,13 @@ dropArea22.addEventListener('drop', ed => {
       img.onload = () => {
         const canvas = document.createElement('canvas');
         const ctx = canvas.getContext('2d');
-        canvas.width = 300;
-        canvas.height = 300;
-        ctx.drawImage(img, 0, 0, 300, 300);
+        canvas.width = 640;
+        canvas.height = 1240;
+        ctx.drawImage(img, 0, 0, 640, 1240);
         const resized_img = canvas.toDataURL('image/png');
   
         // Save resized image as PNG
-        const new_name = 'imagenamekakaotalk_1.png';
+        const new_name = 'theme_splash_image.png';
         const a = document.createElement('a');
         a.href = resized_img;
         a.download = new_name;
@@ -1314,13 +1310,13 @@ form2.addEventListener('submit', ed => {
     img2.onload = () => {
       const canvas2 = document.createElement('canvas');
       const ctx2 = canvas2.getContext('2d');
-      canvas2.width = 300;
-      canvas2.height = 300;
-      ctx2.drawImage(img2, 0, 0, 300, 300);
+      canvas2.width = 640;
+      canvas2.height = 1280;
+      ctx2.drawImage(img2, 0, 0, 640, 1280);
       const resized_img2 = canvas2.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name2 = 'imagenamekakaotalk_12.png';
+      const new_name2 = 'theme_chatroom_background_image.png';
       const a2 = document.createElement('a');
       a2.href = resized_img2;
       a2.download = new_name2;
@@ -1356,13 +1352,13 @@ form3.addEventListener('submit', ed => {
     img3.onload = () => {
       const canvas3 = document.createElement('canvas');
       const ctx3 = canvas3.getContext('2d');
-      canvas3.width = 300;
-      canvas3.height = 300;
-      ctx3.drawImage(img3, 0, 0, 300, 300);
+      canvas3.width = 640;
+      canvas3.height = 1280;
+      ctx3.drawImage(img3, 0, 0, 640, 1280);
       const resized_img3 = canvas3.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name3 = 'imagenamekakaotalk_12.png';
+      const new_name3 = 'theme_background_image.png';
       const a3 = document.createElement('a');
       a3.href = resized_img3;
       a3.download = new_name3;
@@ -1395,13 +1391,13 @@ form4.addEventListener('submit', ed => {
     img4.onload = () => {
       const canvas4 = document.createElement('canvas');
       const ctx4 = canvas4.getContext('2d');
-      canvas4.width = 300;
-      canvas4.height = 300;
-      ctx4.drawImage(img4, 0, 0, 300, 300);
+      canvas4.width = 1440;
+      canvas4.height = 1440;
+      ctx4.drawImage(img4, 0, 0, 1440, 1440);
       const resized_img4 = canvas4.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name4 = 'imagenamekakaotalk_.png';
+      const new_name4 = 'theme_passcode_background_image.png';
       const a4 = document.createElement('a');
       a4.href = resized_img4;
       a4.download = new_name4;
@@ -1413,41 +1409,22 @@ form4.addEventListener('submit', ed => {
   reader4.readAsDataURL(file4);
 }); 
 
-// Handle form submission
-form5.addEventListener('submit', ed => {
-  ed.preventDefault();
-  const file5 = input5.files[0];
 
-  // Check if file is an image
-  if (!file5.type.startsWith('image/')) {
-    alert('Error: File is not an image.');
-    return;
-  }
-  // Resize image 
-  const img5 = new Image();
-  const reader5 = new FileReader();
-  reader5.onload = () => {
-    img5.src = reader5.result;
-    img5.onload = () => {
-      const canvas5 = document.createElement('canvas');
-      const ctx5 = canvas5.getContext('2d');
-      canvas5.width = 300;
-      canvas5.height = 300;
-      ctx5.drawImage(img5, 0, 0, 300, 300);
-      const resized_img5 = canvas5.toDataURL('image/png');
 
-      // Save resized image as PNG
-      const new_name5 = 'imagenamekakaotalk_.png';
-      const a5 = document.createElement('a');
-      a5.href = resized_img5;
-      a5.download = new_name5;
-      document.body.appendChild(a5);
-      a5.click();
-      document.body.removeChild(a5);
-    };
-  };
-  reader5.readAsDataURL(file5);
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Handle form submission
 form5.addEventListener('submit', ed => {
@@ -1467,9 +1444,9 @@ form5.addEventListener('submit', ed => {
     img5.onload = () => {
       const canvas5 = document.createElement('canvas');
       const ctx5 = canvas5.getContext('2d');
-      canvas5.width = 300;
-      canvas5.height = 300;
-      ctx5.drawImage(img5, 0, 0, 300, 300);
+      canvas5.width = 114;
+      canvas5.height = 114;
+      ctx5.drawImage(img5, 0, 0, 114, 114);
       const resized_img5 = canvas5.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1484,6 +1461,7 @@ form5.addEventListener('submit', ed => {
   };
   reader5.readAsDataURL(file5);
 });
+ 
 
 // Handle form submission
 form6.addEventListener('submit', ed => {
@@ -1503,9 +1481,9 @@ form6.addEventListener('submit', ed => {
     img6.onload = () => {
       const canvas6 = document.createElement('canvas');
       const ctx6 = canvas6.getContext('2d');
-      canvas6.width = 300;
-      canvas6.height = 300;
-      ctx6.drawImage(img6, 0, 0, 300, 300);
+      canvas6.width = 114;
+      canvas6.height = 114;
+      ctx6.drawImage(img6, 0, 0, 114, 114);
       const resized_img6 = canvas6.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1539,9 +1517,9 @@ form7.addEventListener('submit', ed => {
     img7.onload = () => {
       const canvas7 = document.createElement('canvas');
       const ctx7 = canvas7.getContext('2d');
-      canvas7.width = 300;
-      canvas7.height = 300;
-      ctx7.drawImage(img7, 0, 0, 300, 300);
+      canvas7.width = 114;
+      canvas7.height = 114;
+      ctx7.drawImage(img7, 0, 0, 114, 114);
       const resized_img7 = canvas7.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1575,9 +1553,9 @@ form8.addEventListener('submit', ed => {
     img8.onload = () => {
       const canvas8 = document.createElement('canvas');
       const ctx8 = canvas8.getContext('2d');
-      canvas8.width = 300;
-      canvas8.height = 300;
-      ctx8.drawImage(img8, 0, 0, 300, 300);
+      canvas8.width = 114;
+      canvas8.height = 114;
+      ctx8.drawImage(img8, 0, 0, 114, 114);
       const resized_img8 = canvas8.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1611,9 +1589,9 @@ form9.addEventListener('submit', ed => {
     img9.onload = () => {
       const canvas9 = document.createElement('canvas');
       const ctx9 = canvas9.getContext('2d');
-      canvas9.width = 300;
-      canvas9.height = 300;
-      ctx9.drawImage(img9, 0, 0, 300, 300);
+      canvas9.width = 114;
+      canvas9.height = 114;
+      ctx9.drawImage(img9, 0, 0, 114, 114);
       const resized_img9 = canvas9.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1647,9 +1625,9 @@ form10.addEventListener('submit', ed => {
     img10.onload = () => {
       const canvas10 = document.createElement('canvas');
       const ctx10 = canvas10.getContext('2d');
-      canvas10.width = 300;
-      canvas10.height = 300;
-      ctx10.drawImage(img10, 0, 0, 300, 300);
+      canvas10.width = 114;
+      canvas10.height = 114;
+      ctx10.drawImage(img10, 0, 0, 114, 114);
       const resized_img10 = canvas10.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1683,9 +1661,9 @@ form11.addEventListener('submit', ed => {
     img11.onload = () => {
       const canvas11 = document.createElement('canvas');
       const ctx11 = canvas11.getContext('2d');
-      canvas11.width = 300;
-      canvas11.height = 300;
-      ctx11.drawImage(img11, 0, 0, 300, 300);
+      canvas11.width = 114;
+      canvas11.height = 114;
+      ctx11.drawImage(img11, 0, 0, 114, 114);
       const resized_img11 = canvas11.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1719,9 +1697,9 @@ form12.addEventListener('submit', ed => {
     img12.onload = () => {
       const canvas12 = document.createElement('canvas');
       const ctx12 = canvas12.getContext('2d');
-      canvas12.width = 300;
-      canvas12.height = 300;
-      ctx12.drawImage(img12, 0, 0, 300, 300);
+      canvas12.width = 114;
+      canvas12.height = 114;
+      ctx12.drawImage(img12, 0, 0, 114, 114);
       const resized_img12 = canvas12.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1755,9 +1733,9 @@ form13.addEventListener('submit', ed => {
     img13.onload = () => {
       const canvas13 = document.createElement('canvas');
       const ctx13 = canvas13.getContext('2d');
-      canvas13.width = 300;
-      canvas13.height = 300;
-      ctx13.drawImage(img13, 0, 0, 300, 300);
+      canvas13.width = 114;
+      canvas13.height = 114;
+      ctx13.drawImage(img13, 0, 0, 114, 114);
       const resized_img13 = canvas13.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1791,9 +1769,9 @@ form14.addEventListener('submit', ed => {
     img14.onload = () => {
       const canvas14 = document.createElement('canvas');
       const ctx14 = canvas14.getContext('2d');
-      canvas14.width = 300;
-      canvas14.height = 300;
-      ctx14.drawImage(img14, 0, 0, 300, 300);
+      canvas14.width = 114;
+      canvas14.height = 114;
+      ctx14.drawImage(img14, 0, 0, 114, 114);
       const resized_img14 = canvas14.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1808,6 +1786,24 @@ form14.addEventListener('submit', ed => {
   };
   reader14.readAsDataURL(file14);
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // Handle form submission
 form15.addEventListener('submit', ed => {
@@ -1827,9 +1823,9 @@ form15.addEventListener('submit', ed => {
     img15.onload = () => {
       const canvas15 = document.createElement('canvas');
       const ctx15 = canvas15.getContext('2d');
-      canvas15.width = 300;
-      canvas15.height = 300;
-      ctx15.drawImage(img15, 0, 0, 300, 300);
+      canvas15.width = 132;
+      canvas15.height = 132;
+      ctx15.drawImage(img15, 0, 0, 132, 132);
       const resized_img15 = canvas15.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1844,6 +1840,7 @@ form15.addEventListener('submit', ed => {
   };
   reader15.readAsDataURL(file15);
 });
+
 
 // Handle form submission
 form16.addEventListener('submit', ed => {
@@ -1863,9 +1860,9 @@ form16.addEventListener('submit', ed => {
     img16.onload = () => {
       const canvas16 = document.createElement('canvas');
       const ctx16 = canvas16.getContext('2d');
-      canvas16.width = 300;
-      canvas16.height = 300;
-      ctx16.drawImage(img16, 0, 0, 300, 300);
+      canvas16.width = 132;
+      canvas16.height = 132;
+      ctx16.drawImage(img16, 0, 0, 132, 132);
       const resized_img16 = canvas16.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1899,9 +1896,9 @@ form17.addEventListener('submit', ed => {
     img17.onload = () => {
       const canvas17 = document.createElement('canvas');
       const ctx17 = canvas17.getContext('2d');
-      canvas17.width = 300;
-      canvas17.height = 300;
-      ctx17.drawImage(img17, 0, 0, 300, 300);
+      canvas17.width = 132;
+      canvas17.height = 132;
+      ctx17.drawImage(img17, 0, 0, 132, 132);
       const resized_img17 = canvas17.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1935,9 +1932,9 @@ form18.addEventListener('submit', ed => {
     img18.onload = () => {
       const canvas18 = document.createElement('canvas');
       const ctx18 = canvas18.getContext('2d');
-      canvas18.width = 300;
-      canvas18.height = 300;
-      ctx18.drawImage(img18, 0, 0, 300, 300);
+      canvas18.width = 132;
+      canvas18.height = 132;
+      ctx18.drawImage(img18, 0, 0, 132, 132);
       const resized_img18 = canvas18.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -1971,9 +1968,9 @@ form19.addEventListener('submit', ed => {
     img19.onload = () => {
       const canvas19 = document.createElement('canvas');
       const ctx19 = canvas19.getContext('2d');
-      canvas19.width = 300;
-      canvas19.height = 300;
-      ctx19.drawImage(img19, 0, 0, 300, 300);
+      canvas19.width = 132;
+      canvas19.height = 132;
+      ctx19.drawImage(img19, 0, 0, 132, 132);
       const resized_img19 = canvas19.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -2007,9 +2004,9 @@ form20.addEventListener('submit', ed => {
     img20.onload = () => {
       const canvas20 = document.createElement('canvas');
       const ctx20 = canvas20.getContext('2d');
-      canvas20.width = 300;
-      canvas20.height = 300;
-      ctx20.drawImage(img20, 0, 0, 300, 300);
+      canvas20.width = 132;
+      canvas20.height = 132;
+      ctx20.drawImage(img20, 0, 0, 132, 132);
       const resized_img20 = canvas20.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -2043,9 +2040,9 @@ form21.addEventListener('submit', ed => {
     img21.onload = () => {
       const canvas21 = document.createElement('canvas');
       const ctx21 = canvas21.getContext('2d');
-      canvas21.width = 300;
-      canvas21.height = 300;
-      ctx21.drawImage(img21, 0, 0, 300, 300);
+      canvas21.width = 132;
+      canvas21.height = 132;
+      ctx21.drawImage(img21, 0, 0, 132, 132);
       const resized_img21 = canvas21.toDataURL('image/png');
 
       // Save resized image as PNG
@@ -2079,9 +2076,9 @@ form22.addEventListener('submit', ed => {
     img22.onload = () => {
       const canvas22 = document.createElement('canvas');
       const ctx22 = canvas22.getContext('2d');
-      canvas22.width = 300;
-      canvas22.height = 300;
-      ctx22.drawImage(img22, 0, 0, 300, 300);
+      canvas22.width = 132;
+      canvas22.height = 132;
+      ctx22.drawImage(img22, 0, 0, 132, 132);
       const resized_img22 = canvas22.toDataURL('image/png');
 
       // Save resized image as PNG
