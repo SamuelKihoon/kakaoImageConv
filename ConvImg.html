@@ -1450,7 +1450,7 @@ form5.addEventListener('submit', ed => {
       const resized_img5 = canvas5.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name5 = 'imagenamekakaotalk_.png';
+      const new_name5 = 'theme_maintab_ico_browse_focused_image.png';
       const a5 = document.createElement('a');
       a5.href = resized_img5;
       a5.download = new_name5;
@@ -1487,7 +1487,7 @@ form6.addEventListener('submit', ed => {
       const resized_img6 = canvas6.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name6 = 'imagenamekakaotalk_.png';
+      const new_name6 = 'theme_maintab_ico_browse_image.png';
       const a6 = document.createElement('a');
       a6.href = resized_img6;
       a6.download = new_name6;
@@ -1523,7 +1523,7 @@ form7.addEventListener('submit', ed => {
       const resized_img7 = canvas7.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name7 = 'imagenamekakaotalk_.png';
+      const new_name7 = 'theme_maintab_ico_chats_focused_image.png';
       const a7 = document.createElement('a');
       a7.href = resized_img7;
       a7.download = new_name7;
@@ -1559,7 +1559,7 @@ form8.addEventListener('submit', ed => {
       const resized_img8 = canvas8.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name8 = 'imagenamekakaotalk_.png';
+      const new_name8 = 'theme_maintab_ico_chats_image.png';
       const a8 = document.createElement('a');
       a8.href = resized_img8;
       a8.download = new_name8;
@@ -1595,7 +1595,7 @@ form9.addEventListener('submit', ed => {
       const resized_img9 = canvas9.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name9 = 'imagenamekakaotalk_.png';
+      const new_name9 = 'theme_maintab_ico_find_focused_image.png';
       const a9 = document.createElement('a');
       a9.href = resized_img9;
       a9.download = new_name9;
@@ -1631,7 +1631,7 @@ form10.addEventListener('submit', ed => {
       const resized_img10 = canvas10.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name10 = 'imagenamekakaotalk_.png';
+      const new_name10 = 'theme_maintab_ico_find_image.png';
       const a10 = document.createElement('a');
       a10.href = resized_img10;
       a10.download = new_name10;
@@ -1667,7 +1667,7 @@ form11.addEventListener('submit', ed => {
       const resized_img11 = canvas11.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name11 = 'imagenamekakaotalk_.png';
+      const new_name11 = 'theme_maintab_ico_friends_focused_image.png';
       const a11 = document.createElement('a');
       a11.href = resized_img11;
       a11.download = new_name11;
@@ -1703,7 +1703,7 @@ form12.addEventListener('submit', ed => {
       const resized_img12 = canvas12.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name12 = 'imagenamekakaotalk_.png';
+      const new_name12 = 'theme_maintab_ico_friends_image.png';
       const a12 = document.createElement('a');
       a12.href = resized_img12;
       a12.download = new_name12;
@@ -1739,7 +1739,7 @@ form13.addEventListener('submit', ed => {
       const resized_img13 = canvas13.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name13 = 'imagenamekakaotalk_.png';
+      const new_name13 = 'theme_maintab_ico_game_focused_image.png';
       const a13 = document.createElement('a');
       a13.href = resized_img13;
       a13.download = new_name13;
@@ -1775,7 +1775,7 @@ form14.addEventListener('submit', ed => {
       const resized_img14 = canvas14.toDataURL('image/png');
 
       // Save resized image as PNG
-      const new_name14 = 'imagenamekakaotalk_.png';
+      const new_name14 = 'theme_maintab_ico_game_image.png';
       const a14 = document.createElement('a');
       a14.href = resized_img14;
       a14.download = new_name14;
@@ -1790,12 +1790,152 @@ form14.addEventListener('submit', ed => {
 
 
 
+// Handle form submission
+form14e.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file14e = input14e.files[0];
+
+  // Check if file is an image
+  if (!file14e.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img14e = new Image();
+  const reader14e = new FileReader();
+  reader14e.onload = () => {
+    img14e.src = reader14e.result;
+    img14e.onload = () => {
+      const canvas14e = document.createElement('canvas');
+      const ctx14e = canvas14e.getContext('2d');
+      canvas14e.width = 114;
+      canvas14e.height = 114;
+      ctx14e.drawImage(img14e, 0, 0, 114, 114);
+      const resized_img14e = canvas14e.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name14e = 'theme_maintab_ico_game_image.png';
+      const a14e = document.createElement('a');
+      a14e.href = resized_img14;
+      a14e.download = new_name14;
+      document.body.appendChild(a14e);
+      a14e.click();
+      document.body.removeChild(a14e);
+    };
+  };
+  reader14e.readAsDataURL(file14e);
+});
+
+// Handle form submission
+form14e2.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file14e2 = input14e2.files[0];
+
+  // Check if file is an image
+  if (!file14e2.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img14e2 = new Image();
+  const reader14e2 = new FileReader();
+  reader14e2.onload = () => {
+    img14e2.src = reader14e2.result;
+    img14e2.onload = () => {
+      const canvas14e2 = document.createElement('canvas');
+      const ctx14e2 = canvas14e2.getContext('2d');
+      canvas14e2.width = 114;
+      canvas14e2.height = 114;
+      ctx14e2.drawImage(img14e2, 0, 0, 114, 114);
+      const resized_img14e2 = canvas14e2.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name14e2 = 'theme_maintab_ico_game_image.png';
+      const a14e2 = document.createElement('a');
+      a14e2.href = resized_img14e2;
+      a14e2.download = new_name14e2;
+      document.body.appendChild(a14e2);
+      a14e2.click();
+      document.body.removeChild(a14e2);
+    };
+  };
+  reader14e2.readAsDataURL(file14e2);
+});
 
 
 
+// Handle form submission
+form14b.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file14b = input14b.files[0];
+
+  // Check if file is an image
+  if (!file14b.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img14b = new Image();
+  const reader14b = new FileReader();
+  reader14b.onload = () => {
+    img14b.src = reader14b.result;
+    img14b.onload = () => {
+      const canvas14b = document.createElement('canvas');
+      const ctx14b = canvas14b.getContext('2d');
+      canvas14b.width = 114;
+      canvas14b.height = 114;
+      ctx14b.drawImage(img14b, 0, 0, 114, 114);
+      const resized_img14b = canvas14b.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name14b = 'theme_maintab_ico_game_image.png';
+      const a14b = document.createElement('a');
+      a14b.href = resized_img14b;
+      a14b.download = new_name14b;
+      document.body.appendChild(a14b);
+      a14b.click();
+      document.body.removeChild(a14b);
+    };
+  };
+  reader14b.readAsDataURL(file14b);
+});
 
 
+// Handle form submission
+form14b1.addEventListener('submit', ed => {
+  ed.preventDefault();
+  const file14b1 = input14b1.files[0];
 
+  // Check if file is an image
+  if (!file14b1.type.startsWith('image/')) {
+    alert('Error: File is not an image.');
+    return;
+  }
+  // Resize image 
+  const img14b1 = new Image();
+  const reader14b1 = new FileReader();
+  reader14b1.onload = () => {
+    img14b1.src = reader14b1.result;
+    img14b1.onload = () => {
+      const canvas14b1 = document.createElement('canvas');
+      const ctx14b1 = canvas14b1.getContext('2d');
+      canvas14b1.width = 114;
+      canvas14b1.height = 114;
+      ctx14b1.drawImage(img14b1, 0, 0, 114, 114);
+      const resized_img14b1 = canvas14b1.toDataURL('image/png');
+
+      // Save resized image as PNG
+      const new_name14b1 = 'theme_maintab_ico_game_image.png';
+      const a14b1 = document.createElement('a');
+      a14b1.href = resized_img14b1;
+      a14b1.download = new_name14b1;
+      document.body.appendChild(a14b1);
+      a14b1.click();
+      document.body.removeChild(a14b1);
+    };
+  };
+  reader14b1.readAsDataURL(file14b1);
+});
 
 
 
