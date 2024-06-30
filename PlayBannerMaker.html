@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            gap: 20px;
+        }
+        #container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        #controls {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input, button {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        canvas {
+            display: block;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+        #downloadLink {
+            display: block;
+            margin-top: 10px;
+            text-align: center;
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #dropZone {
+            background: #f0f0f0;
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            width: 512px;
+            height: 512px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="controls">
+            <label for="iconUpload">Upload Icon:</label>
+            <input type="file" id="iconUpload" accept="image/*">
+
+            <label for="textInput">Enter Text:</label>
+            <input type="text" id="textInput">
+
+            <label for="bgColor">Select Background Color:</label>
+            <input type="color" id="bgColor" value="#FFFFFF">
+
+            <button onclick="generateImage()">Generate Image</button>
+        </div>
+        <canvas id="canvas" width="1024" height="500"></canvas>
+        <a id="downloadLink" download="PlayPanner.png">Download Image</a>
+    </div>
+
+    <!-- New Feature: Drag and Drop Image Upload -->
+    <div id="container">
+        <div id="controls">
+            <label for="dropZone">Drag and drop an image to resize to 512x512:</label>
+            <div id="dropZone">Drop image here</div>
+            <a id="downloadLinkResized" download="ResizedImage.png">Download Resized Image</a>
+        </div>
+        <canvas id="resizeCanvas" width="512" height="512" style="display:none;"></canvas>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<script>
+    function generateImage() {
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        const text = document.getElementById('textInput').value;
+        const iconInput = document.getElementById('iconUpload');
+        const iconFile = iconInput.files[0];
+        const bgColor = document.getElementById('bgColor').value;
+        
+        if (!iconFile) {
+            alert('Please upload an icon.');
+            return;
+        }
+    
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            const img = new Image();
+            img.onload = function() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+                // Draw selected background color
+                ctx.fillStyle = bgColor;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+                // Draw icon with border radius
+                const iconSize = 150; // Adjust size as needed
+                const iconX = (canvas.width - iconSize) / 2;
+                const iconY = (canvas.height - iconSize) / 2 - 50; // Adjusted to move up
+    
+                ctx.save();
+                ctx.beginPath();
+                ctx.moveTo(iconX + 12, iconY);
+                ctx.arcTo(iconX + iconSize, iconY, iconX + iconSize, iconY + iconSize, 12);
+                ctx.arcTo(iconX + iconSize, iconY + iconSize, iconX, iconY + iconSize, 12);
+                ctx.arcTo(iconX, iconY + iconSize, iconX, iconY, 12);
+                ctx.arcTo(iconX, iconY, iconX + iconSize, iconY, 12);
+                ctx.clip();
+                ctx.drawImage(img, iconX, iconY, iconSize, iconSize);
+                ctx.restore();
+    
+                // Draw text
+                ctx.fillStyle = "#000000";
+                ctx.font = "30px Arial";
+                ctx.textAlign = "center";
+                ctx.fillText(text, canvas.width / 2, iconY + iconSize + 30); // Adjusted to move up
+    
+                // Create download link
+                const downloadLink = document.getElementById('downloadLink');
+                downloadLink.href = canvas.toDataURL('image/png');
+            };
+            img.src = event.target.result;
+        };
+        reader.readAsDataURL(iconFile);
+    }
+    
+    // New Feature: Resize Image to 512x512
+    const dropZone = document.getElementById('dropZone');
+    
+    dropZone.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        dropZone.style.backgroundColor = '#e0e0e0';
+    });
+    
+    dropZone.addEventListener('dragleave', () => {
+        dropZone.style.backgroundColor = '#f0f0f0';
+    });
+    
+    dropZone.addEventListener('drop', (event) => {
+        event.preventDefault();
+        dropZone.style.backgroundColor = '#f0f0f0';
+        const file = event.dataTransfer.files[0];
+    
+        if (file && file.type.startsWith('image/')) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    const resizeCanvas = document.getElementById('resizeCanvas');
+                    const ctx = resizeCanvas.getContext('2d');
+                    ctx.clearRect(0, 0, resizeCanvas.width, resizeCanvas.height);
+                    ctx.drawImage(img, 0, 0, resizeCanvas.width, resizeCanvas.height);
+    
+                    const downloadLinkResized = document.getElementById('downloadLinkResized');
+                    downloadLinkResized.href = resizeCanvas.toDataURL('image/png');
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        } else {
+            alert('Please drop a valid image file.');
+        }
+    });
+    
+</script>
