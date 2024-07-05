@@ -207,3 +207,1265 @@
     3.카톡테마 적용 완료!</a>
 <br><br><br><br><br><br>
 <a>.</a>
+
+
+<script>
+
+
+
+// Handle form submission
+form0.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file0 = input0.files[0];
+  
+    // Check if file is an image
+    if (!file0.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+  
+    // Resize image to 300x300
+    const img0 = new Image();
+    const reader0 = new FileReader();
+    reader0.onload = () => {
+      img0.src = reader0.result;
+      img0.onload = () => {
+        const canvas0 = document.createElement('canvas');
+        const ctx0 = canvas0.getContext('2d');
+        canvas0.width = 940;
+        canvas0.height = 98;
+        ctx0.drawImage(img0, 0, 0, 640, 1280);
+        const resized_img0 = canvas0.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name0 = 'theme_chatroom_background_image.png';
+        const a0 = document.createElement('a');
+        a0.href = resized_img0;
+        a0.download = new_name0;
+        document.body.appendChild(a0);
+        a0.click();
+        document.body.removeChild(a0);
+      };
+    };
+    reader0.readAsDataURL(file0);
+  });
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    // Handle form submission
+    form.addEventListener('submit', e => {
+  
+  
+      e.preventDefault();
+      const file = input.files[0];
+    
+      // Check if file is an image
+      if (!file.type.startsWith('image/')) {
+        alert('Error: File is not an image.');
+        return;
+      }
+    
+      // Resize image to 300x300
+      const img = new Image();
+      const reader = new FileReader();
+      reader.onload = () => {
+        img.src = reader.result;
+        img.onload = () => {
+          const canvas = document.createElement('canvas');
+          const ctx = canvas.getContext('2d');
+          canvas.width = 640;
+          canvas.height = 1240;
+          ctx.drawImage(img, 0, 0, 640, 1240);
+          const resized_img = canvas.toDataURL('image/png');
+    
+          // Save resized image as PNG
+          const new_name = 'theme_splash_image.png';
+          const a = document.createElement('a');
+          a.href = resized_img;
+          a.download = new_name;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        };
+      };
+      reader.readAsDataURL(file);
+  
+  
+      
+    });
+  
+  
+  
+  
+  
+  
+   
+  // Handle form submission
+  form2.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file2 = input2.files[0];
+  
+    // Check if file is an image
+    if (!file2.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+  
+    // Resize image to 300x300
+    const img2 = new Image();
+    const reader2 = new FileReader();
+    reader2.onload = () => {
+      img2.src = reader2.result;
+      img2.onload = () => {
+        const canvas2 = document.createElement('canvas');
+        const ctx2 = canvas2.getContext('2d');
+        canvas2.width = 640;
+        canvas2.height = 1280;
+        ctx2.drawImage(img2, 0, 0, 640, 1280);
+        const resized_img2 = canvas2.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name2 = 'theme_chatroom_background_image.png';
+        const a2 = document.createElement('a');
+        a2.href = resized_img2;
+        a2.download = new_name2;
+        document.body.appendChild(a2);
+        a2.click();
+        document.body.removeChild(a2);
+      };
+    };
+    reader2.readAsDataURL(file2);
+  }); 
+  
+  
+  
+  
+  
+  
+  
+  // Handle form submission
+  form3.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file3 = input3.files[0];
+  
+    // Check if file is an image
+    if (!file3.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image to 300x300
+    const img3 = new Image();
+    const reader3 = new FileReader();
+    reader3.onload = () => {
+      img3.src = reader3.result;
+      img3.onload = () => {
+        const canvas3 = document.createElement('canvas');
+        const ctx3 = canvas3.getContext('2d');
+        canvas3.width = 640;
+        canvas3.height = 1280;
+        ctx3.drawImage(img3, 0, 0, 640, 1280);
+        const resized_img3 = canvas3.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name3 = 'theme_background_image.png';
+        const a3 = document.createElement('a');
+        a3.href = resized_img3;
+        a3.download = new_name3;
+        document.body.appendChild(a3);
+        a3.click();
+        document.body.removeChild(a3);
+      };
+    };
+    reader3.readAsDataURL(file3);
+  }); 
+  
+  
+  
+  
+  // Handle form submission
+  form4.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file4 = input4.files[0];
+  
+    // Check if file is an image
+    if (!file4.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img4 = new Image();
+    const reader4 = new FileReader();
+    reader4.onload = () => {
+      img4.src = reader4.result;
+      img4.onload = () => {
+        const canvas4 = document.createElement('canvas');
+        const ctx4 = canvas4.getContext('2d');
+        canvas4.width = 1440;
+        canvas4.height = 1440;
+        ctx4.drawImage(img4, 0, 0, 1440, 1440);
+        const resized_img4 = canvas4.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name4 = 'theme_passcode_background_image.png';
+        const a4 = document.createElement('a');
+        a4.href = resized_img4;
+        a4.download = new_name4;
+        document.body.appendChild(a4);
+        a4.click();
+        document.body.removeChild(a4);
+      };
+    };
+    reader4.readAsDataURL(file4);
+  }); 
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // Handle form submission
+  form5.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file5 = input5.files[0];
+  
+    // Check if file is an image
+    if (!file5.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img5 = new Image();
+    const reader5 = new FileReader();
+    reader5.onload = () => {
+      img5.src = reader5.result;
+      img5.onload = () => {
+        const canvas5 = document.createElement('canvas');
+        const ctx5 = canvas5.getContext('2d');
+        canvas5.width = 114;
+        canvas5.height = 114;
+        ctx5.drawImage(img5, 0, 0, 114, 114);
+        const resized_img5 = canvas5.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name5 = 'theme_maintab_ico_browse_focused_image.png';
+        const a5 = document.createElement('a');
+        a5.href = resized_img5;
+        a5.download = new_name5;
+        document.body.appendChild(a5);
+        a5.click();
+        document.body.removeChild(a5);
+      };
+    };
+    reader5.readAsDataURL(file5);
+  });
+   
+  
+  // Handle form submission
+  form6.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file6 = input6.files[0];
+  
+    // Check if file is an image
+    if (!file6.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img6 = new Image();
+    const reader6 = new FileReader();
+    reader6.onload = () => {
+      img6.src = reader6.result;
+      img6.onload = () => {
+        const canvas6 = document.createElement('canvas');
+        const ctx6 = canvas6.getContext('2d');
+        canvas6.width = 114;
+        canvas6.height = 114;
+        ctx6.drawImage(img6, 0, 0, 114, 114);
+        const resized_img6 = canvas6.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name6 = 'theme_maintab_ico_browse_image.png';
+        const a6 = document.createElement('a');
+        a6.href = resized_img6;
+        a6.download = new_name6;
+        document.body.appendChild(a6);
+        a6.click();
+        document.body.removeChild(a6);
+      };
+    };
+    reader6.readAsDataURL(file6);
+  });
+  
+  // Handle form submission
+  form7.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file7 = input7.files[0];
+  
+    // Check if file is an image
+    if (!file7.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img7 = new Image();
+    const reader7 = new FileReader();
+    reader7.onload = () => {
+      img7.src = reader7.result;
+      img7.onload = () => {
+        const canvas7 = document.createElement('canvas');
+        const ctx7 = canvas7.getContext('2d');
+        canvas7.width = 114;
+        canvas7.height = 114;
+        ctx7.drawImage(img7, 0, 0, 114, 114);
+        const resized_img7 = canvas7.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name7 = 'theme_maintab_ico_chats_focused_image.png';
+        const a7 = document.createElement('a');
+        a7.href = resized_img7;
+        a7.download = new_name7;
+        document.body.appendChild(a7);
+        a7.click();
+        document.body.removeChild(a7);
+      };
+    };
+    reader7.readAsDataURL(file7);
+  });
+  
+  // Handle form submission
+  form8.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file8 = input8.files[0];
+  
+    // Check if file is an image
+    if (!file8.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img8 = new Image();
+    const reader8 = new FileReader();
+    reader8.onload = () => {
+      img8.src = reader8.result;
+      img8.onload = () => {
+        const canvas8 = document.createElement('canvas');
+        const ctx8 = canvas8.getContext('2d');
+        canvas8.width = 114;
+        canvas8.height = 114;
+        ctx8.drawImage(img8, 0, 0, 114, 114);
+        const resized_img8 = canvas8.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name8 = 'theme_maintab_ico_chats_image.png';
+        const a8 = document.createElement('a');
+        a8.href = resized_img8;
+        a8.download = new_name8;
+        document.body.appendChild(a8);
+        a8.click();
+        document.body.removeChild(a8);
+      };
+    };
+    reader8.readAsDataURL(file8);
+  });
+  
+  // Handle form submission
+  form9.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file9 = input9.files[0];
+  
+    // Check if file is an image
+    if (!file9.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img9 = new Image();
+    const reader9 = new FileReader();
+    reader9.onload = () => {
+      img9.src = reader9.result;
+      img9.onload = () => {
+        const canvas9 = document.createElement('canvas');
+        const ctx9 = canvas9.getContext('2d');
+        canvas9.width = 114;
+        canvas9.height = 114;
+        ctx9.drawImage(img9, 0, 0, 114, 114);
+        const resized_img9 = canvas9.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name9 = 'theme_maintab_ico_find_focused_image.png';
+        const a9 = document.createElement('a');
+        a9.href = resized_img9;
+        a9.download = new_name9;
+        document.body.appendChild(a9);
+        a9.click();
+        document.body.removeChild(a9);
+      };
+    };
+    reader9.readAsDataURL(file9);
+  });
+   
+  // Handle form submission
+  form10.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file10 = input10.files[0];
+  
+    // Check if file is an image
+    if (!file10.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img10 = new Image();
+    const reader10 = new FileReader();
+    reader10.onload = () => {
+      img10.src = reader10.result;
+      img10.onload = () => {
+        const canvas10 = document.createElement('canvas');
+        const ctx10 = canvas10.getContext('2d');
+        canvas10.width = 114;
+        canvas10.height = 114;
+        ctx10.drawImage(img10, 0, 0, 114, 114);
+        const resized_img10 = canvas10.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name10 = 'theme_maintab_ico_find_image.png';
+        const a10 = document.createElement('a');
+        a10.href = resized_img10;
+        a10.download = new_name10;
+        document.body.appendChild(a10);
+        a10.click();
+        document.body.removeChild(a10);
+      };
+    };
+    reader10.readAsDataURL(file10);
+  });
+  
+  // Handle form submission
+  form11.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file11 = input11.files[0];
+  
+    // Check if file is an image
+    if (!file11.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img11 = new Image();
+    const reader11 = new FileReader();
+    reader11.onload = () => {
+      img11.src = reader11.result;
+      img11.onload = () => {
+        const canvas11 = document.createElement('canvas');
+        const ctx11 = canvas11.getContext('2d');
+        canvas11.width = 114;
+        canvas11.height = 114;
+        ctx11.drawImage(img11, 0, 0, 114, 114);
+        const resized_img11 = canvas11.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name11 = 'theme_maintab_ico_friends_focused_image.png';
+        const a11 = document.createElement('a');
+        a11.href = resized_img11;
+        a11.download = new_name11;
+        document.body.appendChild(a11);
+        a11.click();
+        document.body.removeChild(a11);
+      };
+    };
+    reader11.readAsDataURL(file11);
+  });
+   
+  // Handle form submission
+  form12.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file12 = input12.files[0];
+  
+    // Check if file is an image
+    if (!file12.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img12 = new Image();
+    const reader12 = new FileReader();
+    reader12.onload = () => {
+      img12.src = reader12.result;
+      img12.onload = () => {
+        const canvas12 = document.createElement('canvas');
+        const ctx12 = canvas12.getContext('2d');
+        canvas12.width = 114;
+        canvas12.height = 114;
+        ctx12.drawImage(img12, 0, 0, 114, 114);
+        const resized_img12 = canvas12.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name12 = 'theme_maintab_ico_friends_image.png';
+        const a12 = document.createElement('a');
+        a12.href = resized_img12;
+        a12.download = new_name12;
+        document.body.appendChild(a12);
+        a12.click();
+        document.body.removeChild(a12);
+      };
+    };
+    reader12.readAsDataURL(file12);
+  });
+  
+  // Handle form submission
+  form13.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file13 = input13.files[0];
+  
+    // Check if file is an image
+    if (!file13.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img13 = new Image();
+    const reader13 = new FileReader();
+    reader13.onload = () => {
+      img13.src = reader13.result;
+      img13.onload = () => {
+        const canvas13 = document.createElement('canvas');
+        const ctx13 = canvas13.getContext('2d');
+        canvas13.width = 114;
+        canvas13.height = 114;
+        ctx13.drawImage(img13, 0, 0, 114, 114);
+        const resized_img13 = canvas13.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name13 = 'theme_maintab_ico_game_focused_image.png';
+        const a13 = document.createElement('a');
+        a13.href = resized_img13;
+        a13.download = new_name13;
+        document.body.appendChild(a13);
+        a13.click();
+        document.body.removeChild(a13);
+      };
+    };
+    reader13.readAsDataURL(file13);
+  });
+  
+  // Handle form submission
+  form14.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14 = input14.files[0];
+  
+    // Check if file is an image
+    if (!file14.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14 = new Image();
+    const reader14 = new FileReader();
+    reader14.onload = () => {
+      img14.src = reader14.result;
+      img14.onload = () => {
+        const canvas14 = document.createElement('canvas');
+        const ctx14 = canvas14.getContext('2d');
+        canvas14.width = 114;
+        canvas14.height = 114;
+        ctx14.drawImage(img14, 0, 0, 114, 114);
+        const resized_img14 = canvas14.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14 = 'theme_maintab_ico_game_image.png';
+        const a14 = document.createElement('a');
+        a14.href = resized_img14;
+        a14.download = new_name14;
+        document.body.appendChild(a14);
+        a14.click();
+        document.body.removeChild(a14);
+      };
+    };
+    reader14.readAsDataURL(file14);
+  });
+  
+  
+  
+  
+  // Handle form submission
+  form14e.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14e = input14e.files[0];
+  
+    // Check if file is an image
+    if (!file14e.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14e = new Image();
+    const reader14e = new FileReader();
+    reader14e.onload = () => {
+      img14e.src = reader14e.result;
+      img14e.onload = () => {
+        const canvas14e = document.createElement('canvas');
+        const ctx14e = canvas14e.getContext('2d');
+        canvas14e.width = 114;
+        canvas14e.height = 114;
+        ctx14e.drawImage(img14e, 0, 0, 114, 114);
+        const resized_img14e = canvas14e.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14e = 'theme_maintab_ico_more_focused_image.png';
+        const a14e = document.createElement('a');
+        a14e.href = resized_img14;
+        a14e.download = new_name14;
+        document.body.appendChild(a14e);
+        a14e.click();
+        document.body.removeChild(a14e);
+      };
+    };
+    reader14e.readAsDataURL(file14e);
+  });
+  
+  // Handle form submission
+  form14e2.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14e2 = input14e2.files[0];
+  
+    // Check if file is an image
+    if (!file14e2.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14e2 = new Image();
+    const reader14e2 = new FileReader();
+    reader14e2.onload = () => {
+      img14e2.src = reader14e2.result;
+      img14e2.onload = () => {
+        const canvas14e2 = document.createElement('canvas');
+        const ctx14e2 = canvas14e2.getContext('2d');
+        canvas14e2.width = 114;
+        canvas14e2.height = 114;
+        ctx14e2.drawImage(img14e2, 0, 0, 114, 114);
+        const resized_img14e2 = canvas14e2.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14e2 = 'theme_maintab_ico_more_image.png';
+        const a14e2 = document.createElement('a');
+        a14e2.href = resized_img14e2;
+        a14e2.download = new_name14e2;
+        document.body.appendChild(a14e2);
+        a14e2.click();
+        document.body.removeChild(a14e2);
+      };
+    };
+    reader14e2.readAsDataURL(file14e2);
+  });
+  
+  
+  
+  // Handle form submission
+  form14b.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14b = input14b.files[0];
+  
+    // Check if file is an image
+    if (!file14b.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14b = new Image();
+    const reader14b = new FileReader();
+    reader14b.onload = () => {
+      img14b.src = reader14b.result;
+      img14b.onload = () => {
+        const canvas14b = document.createElement('canvas');
+        const ctx14b = canvas14b.getContext('2d');
+        canvas14b.width = 114;
+        canvas14b.height = 114;
+        ctx14b.drawImage(img14b, 0, 0, 114, 114);
+        const resized_img14b = canvas14b.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14b = 'theme_maintab_ico_piccoma_focused_image.png';
+        const a14b = document.createElement('a');
+        a14b.href = resized_img14b;
+        a14b.download = new_name14b;
+        document.body.appendChild(a14b);
+        a14b.click();
+        document.body.removeChild(a14b);
+      };
+    };
+    reader14b.readAsDataURL(file14b);
+  });
+  
+  
+  // Handle form submission
+  form14b1.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14b1 = input14b1.files[0];
+  
+    // Check if file is an image
+    if (!file14b1.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14b1 = new Image();
+    const reader14b1 = new FileReader();
+    reader14b1.onload = () => {
+      img14b1.src = reader14b1.result;
+      img14b1.onload = () => {
+        const canvas14b1 = document.createElement('canvas');
+        const ctx14b1 = canvas14b1.getContext('2d');
+        canvas14b1.width = 114;
+        canvas14b1.height = 114;
+        ctx14b1.drawImage(img14b1, 0, 0, 114, 114);
+        const resized_img14b1 = canvas14b1.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14b1 = 'theme_maintab_ico_piccoma_image.png';
+        const a14b1 = document.createElement('a');
+        a14b1.href = resized_img14b1;
+        a14b1.download = new_name14b1;
+        document.body.appendChild(a14b1);
+        a14b1.click();
+        document.body.removeChild(a14b1);
+      };
+    };
+    reader14b1.readAsDataURL(file14b1);
+  });
+  
+  // Handle form submission
+  form14b2.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14b2 = input14b2.files[0];
+  
+    // Check if file is an image
+    if (!file14b2.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14b2 = new Image();
+    const reader14b2 = new FileReader();
+    reader14b2.onload = () => {
+      img14b2.src = reader14b2.result;
+      img14b2.onload = () => {
+        const canvas14b2 = document.createElement('canvas');
+        const ctx14b2 = canvas14b2.getContext('2d');
+        canvas14b2.width = 114;
+        canvas14b2.height = 114;
+        ctx14b2.drawImage(img14b2, 0, 0, 114, 114);
+        const resized_img14b2 = canvas14b2.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14b2 = 'theme_maintab_ico_piccoma_focused_image.png';
+        const a14b2 = document.createElement('a');
+        a14b2.href = resized_img14b2;
+        a14b2.download = new_name14b2;
+        document.body.appendChild(a14b2);
+        a14b2.click();
+        document.body.removeChild(a14b2);
+      };
+    };
+    reader14b2.readAsDataURL(file14b2);
+  });
+  
+  // Handle form submission
+  form14b3.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14b3 = input14b3.files[0];
+  
+    // Check if file is an image
+    if (!file14b3.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14b3 = new Image();
+    const reader14b3 = new FileReader();
+    reader14b3.onload = () => {
+      img14b3.src = reader14b3.result;
+      img14b3.onload = () => {
+        const canvas14b3 = document.createElement('canvas');
+        const ctx14b3 = canvas14b3.getContext('2d');
+        canvas14b3.width = 114;
+        canvas14b3.height = 114;
+        ctx14b3.drawImage(img14b3, 0, 0, 114, 114);
+        const resized_img14b3 = canvas14b3.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14b3 = 'theme_maintab_ico_piccoma_focused_image.png';
+        const a14b3 = document.createElement('a');
+        a14b3.href = resized_img14b3;
+        a14b3.download = new_name14b3;
+        document.body.appendChild(a14b3);
+        a14b3.click();
+        document.body.removeChild(a14b3);
+      };
+    };
+    reader14b3.readAsDataURL(file14b3);
+  });
+  
+  // Handle form submission
+  form14b4.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14b4 = input14b4.files[0];
+  
+    // Check if file is an image
+    if (!file14b4.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14b4 = new Image();
+    const reader14b4 = new FileReader();
+    reader14b4.onload = () => {
+      img14b4.src = reader14b4.result;
+      img14b4.onload = () => {
+        const canvas14b4 = document.createElement('canvas');
+        const ctx14b4 = canvas14b4.getContext('2d');
+        canvas14b4.width = 114;
+        canvas14b4.height = 114;
+        ctx14b4.drawImage(img14b4, 0, 0, 114, 114);
+        const resized_img14b4 = canvas14b4.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14b4 = 'theme_maintab_ico_piccoma_focused_image.png';
+        const a14b4 = document.createElement('a');
+        a14b4.href = resized_img14b4;
+        a14b4.download = new_name14b4;
+        document.body.appendChild(a14b4);
+        a14b4.click();
+        document.body.removeChild(a14b4);
+      };
+    };
+    reader14b4.readAsDataURL(file14b4);
+  });
+  
+  
+  // Handle form submission for 14b5
+  form14b5.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14b5 = input14b5.files[0];
+  
+    // Check if file is an image
+    if (!file14b5.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14b5 = new Image();
+    const reader14b5 = new FileReader();
+    reader14b5.onload = () => {
+      img14b5.src = reader14b5.result;
+      img14b5.onload = () => {
+        const canvas14b5 = document.createElement('canvas');
+        const ctx14b5 = canvas14b5.getContext('2d');
+        canvas14b5.width = 114;
+        canvas14b5.height = 114;
+        ctx14b5.drawImage(img14b5, 0, 0, 114, 114);
+        const resized_img14b5 = canvas14b5.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14b5 = 'theme_maintab_ico_piccoma_focused_image.png';
+        const a14b5 = document.createElement('a');
+        a14b5.href = resized_img14b5;
+        a14b5.download = new_name14b5;
+        document.body.appendChild(a14b5);
+        a14b5.click();
+        document.body.removeChild(a14b5);
+      };
+    };
+    reader14b5.readAsDataURL(file14b5);
+  });
+  
+  
+  // Handle form submission for 14b6
+  form14b6.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14b6 = input14b6.files[0];
+  
+    // Check if file is an image
+    if (!file14b6.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14b6 = new Image();
+    const reader14b6 = new FileReader();
+    reader14b6.onload = () => {
+      img14b6.src = reader14b6.result;
+      img14b6.onload = () => {
+        const canvas14b6 = document.createElement('canvas');
+        const ctx14b6 = canvas14b6.getContext('2d');
+        canvas14b6.width = 114;
+        canvas14b6.height = 114;
+        ctx14b6.drawImage(img14b6, 0, 0, 114, 114);
+        const resized_img14b6 = canvas14b6.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14b6 = 'theme_maintab_ico_piccoma_focused_image.png';
+        const a14b6 = document.createElement('a');
+        a14b6.href = resized_img14b6;
+        a14b6.download = new_name14b6;
+        document.body.appendChild(a14b6);
+        a14b6.click();
+        document.body.removeChild(a14b6);
+      };
+    };
+    reader14b6.readAsDataURL(file14b6);
+  });
+  
+  // Handle form submission for 14b7
+  form14b7.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file14b7 = input14b7.files[0];
+  
+    // Check if file is an image
+    if (!file14b7.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img14b7 = new Image();
+    const reader14b7 = new FileReader();
+    reader14b7.onload = () => {
+      img14b7.src = reader14b7.result;
+      img14b7.onload = () => {
+        const canvas14b7 = document.createElement('canvas');
+        const ctx14b7 = canvas14b7.getContext('2d');
+        canvas14b7.width = 114;
+        canvas14b7.height = 114;
+        ctx14b7.drawImage(img14b7, 0, 0, 114, 114);
+        const resized_img14b7 = canvas14b7.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name14b7 = 'theme_maintab_ico_piccoma_focused_image.png';
+        const a14b7 = document.createElement('a');
+        a14b7.href = resized_img14b7;
+        a14b7.download = new_name14b7;
+        document.body.appendChild(a14b7);
+        a14b7.click();
+        document.body.removeChild(a14b7);
+      };
+    };
+    reader14b7.readAsDataURL(file14b7);
+  });
+  
+  
+  
+  
+  
+  
+  
+  // Handle form submission
+  form15.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file15 = input15.files[0];
+  
+    // Check if file is an image
+    if (!file15.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img15 = new Image();
+    const reader15 = new FileReader();
+    reader15.onload = () => {
+      img15.src = reader15.result;
+      img15.onload = () => {
+        const canvas15 = document.createElement('canvas');
+        const ctx15 = canvas15.getContext('2d');
+        canvas15.width = 132;
+        canvas15.height = 132;
+        ctx15.drawImage(img15, 0, 0, 132, 132);
+        const resized_img15 = canvas15.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name15 = 'theme_passcode_01_checked_image.png';
+        const a15 = document.createElement('a');
+        a15.href = resized_img15;
+        a15.download = new_name15;
+        document.body.appendChild(a15);
+        a15.click();
+        document.body.removeChild(a15);
+      };
+    };
+    reader15.readAsDataURL(file15);
+  });
+  
+  
+  // Handle form submission
+  form16.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file16 = input16.files[0];
+  
+    // Check if file is an image
+    if (!file16.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img16 = new Image();
+    const reader16 = new FileReader();
+    reader16.onload = () => {
+      img16.src = reader16.result;
+      img16.onload = () => {
+        const canvas16 = document.createElement('canvas');
+        const ctx16 = canvas16.getContext('2d');
+        canvas16.width = 132;
+        canvas16.height = 132;
+        ctx16.drawImage(img16, 0, 0, 132, 132);
+        const resized_img16 = canvas16.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name16 = 'theme_passcode_01_image.png';
+        const a16 = document.createElement('a');
+        a16.href = resized_img16;
+        a16.download = new_name16;
+        document.body.appendChild(a16);
+        a16.click();
+        document.body.removeChild(a16);
+      };
+    };
+    reader16.readAsDataURL(file16);
+  });
+  
+  // Handle form submission
+  form17.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file17 = input17.files[0];
+  
+    // Check if file is an image
+    if (!file17.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img17 = new Image();
+    const reader17 = new FileReader();
+    reader17.onload = () => {
+      img17.src = reader17.result;
+      img17.onload = () => {
+        const canvas17 = document.createElement('canvas');
+        const ctx17 = canvas17.getContext('2d');
+        canvas17.width = 132;
+        canvas17.height = 132;
+        ctx17.drawImage(img17, 0, 0, 132, 132);
+        const resized_img17 = canvas17.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name17 = 'theme_passcode_02_checked_image.png';
+        const a17 = document.createElement('a');
+        a17.href = resized_img17;
+        a17.download = new_name17;
+        document.body.appendChild(a17);
+        a17.click();
+        document.body.removeChild(a17);
+      };
+    };
+    reader17.readAsDataURL(file17);
+  });
+  
+  // Handle form submission
+  form18.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file18 = input18.files[0];
+  
+    // Check if file is an image
+    if (!file18.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img18 = new Image();
+    const reader18 = new FileReader();
+    reader18.onload = () => {
+      img18.src = reader18.result;
+      img18.onload = () => {
+        const canvas18 = document.createElement('canvas');
+        const ctx18 = canvas18.getContext('2d');
+        canvas18.width = 132;
+        canvas18.height = 132;
+        ctx18.drawImage(img18, 0, 0, 132, 132);
+        const resized_img18 = canvas18.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name18 = 'theme_passcode_02_image.png';
+        const a18 = document.createElement('a');
+        a18.href = resized_img18;
+        a18.download = new_name18;
+        document.body.appendChild(a18);
+        a18.click();
+        document.body.removeChild(a18);
+      };
+    };
+    reader18.readAsDataURL(file18);
+  });
+  
+  // Handle form submission
+  form19.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file19 = input19.files[0];
+  
+    // Check if file is an image
+    if (!file19.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img19 = new Image();
+    const reader19 = new FileReader();
+    reader19.onload = () => {
+      img19.src = reader19.result;
+      img19.onload = () => {
+        const canvas19 = document.createElement('canvas');
+        const ctx19 = canvas19.getContext('2d');
+        canvas19.width = 132;
+        canvas19.height = 132;
+        ctx19.drawImage(img19, 0, 0, 132, 132);
+        const resized_img19 = canvas19.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name19 = 'theme_passcode_03_checked_image.png';
+        const a19 = document.createElement('a');
+        a19.href = resized_img19;
+        a19.download = new_name19;
+        document.body.appendChild(a19);
+        a19.click();
+        document.body.removeChild(a19);
+      };
+    };
+    reader19.readAsDataURL(file19);
+  });
+  
+  // Handle form submission
+  form20.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file20 = input20.files[0];
+  
+    // Check if file is an image
+    if (!file20.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img20 = new Image();
+    const reader20 = new FileReader();
+    reader20.onload = () => {
+      img20.src = reader20.result;
+      img20.onload = () => {
+        const canvas20 = document.createElement('canvas');
+        const ctx20 = canvas20.getContext('2d');
+        canvas20.width = 132;
+        canvas20.height = 132;
+        ctx20.drawImage(img20, 0, 0, 132, 132);
+        const resized_img20 = canvas20.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name20 = 'theme_passcode_03_image.png';
+        const a20 = document.createElement('a');
+        a20.href = resized_img20;
+        a20.download = new_name20;
+        document.body.appendChild(a20);
+        a20.click();
+        document.body.removeChild(a20);
+      };
+    };
+    reader20.readAsDataURL(file20);
+  });
+  
+  // Handle form submission
+  form21.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file21 = input21.files[0];
+  
+    // Check if file is an image
+    if (!file21.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img21 = new Image();
+    const reader21 = new FileReader();
+    reader21.onload = () => {
+      img21.src = reader21.result;
+      img21.onload = () => {
+        const canvas21 = document.createElement('canvas');
+        const ctx21 = canvas21.getContext('2d');
+        canvas21.width = 132;
+        canvas21.height = 132;
+        ctx21.drawImage(img21, 0, 0, 132, 132);
+        const resized_img21 = canvas21.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name21 = 'theme_passcode_04_checked_image.png';
+        const a21 = document.createElement('a');
+        a21.href = resized_img21;
+        a21.download = new_name21;
+        document.body.appendChild(a21);
+        a21.click();
+        document.body.removeChild(a21);
+      };
+    };
+    reader21.readAsDataURL(file21);
+  });
+  
+  // Handle form submission
+  form22.addEventListener('submit', ed => {
+    ed.preventDefault();
+    const file22 = input22.files[0];
+  
+    // Check if file is an image
+    if (!file22.type.startsWith('image/')) {
+      alert('Error: File is not an image.');
+      return;
+    }
+    // Resize image 
+    const img22 = new Image();
+    const reader22 = new FileReader();
+    reader22.onload = () => {
+      img22.src = reader22.result;
+      img22.onload = () => {
+        const canvas22 = document.createElement('canvas');
+        const ctx22 = canvas22.getContext('2d');
+        canvas22.width = 132;
+        canvas22.height = 132;
+        ctx22.drawImage(img22, 0, 0, 132, 132);
+        const resized_img22 = canvas22.toDataURL('image/png');
+  
+        // Save resized image as PNG
+        const new_name22 = 'theme_passcode_04_image.png';
+        const a22 = document.createElement('a');
+        a22.href = resized_img22;
+        a22.download = new_name22;
+        document.body.appendChild(a22);
+        a22.click();
+        document.body.removeChild(a22);
+      };
+    };
+    reader22.readAsDataURL(file22);
+  });
+  
+  
+</script>
