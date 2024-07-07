@@ -109,10 +109,10 @@
 </head>
 <body>
   <div class="container">
-    <div class="title">카카오톡 테마 이미지 변환기 KHS</div>
+    <div class="title">카카오톡 테마 이미지 변환기</div>
     <br><br>
     <button id="kingButton" onclick="downloadAllImages()">The King :: All download</button>
-    <button id="kingButton" onclick="window.open='PlayBannerMaker.html';">플레이 배너 메이커</button>
+    <button id="kingButton" onclick="window.open('PlayBannerMaker.html')" style="background: #0b004b;">플레이 배너 메이커</button>
 
 </div>
 
@@ -893,7 +893,7 @@
 
                                 if (count === totalFiles) {
                                     zip.generateAsync({type: "blob"}).then(function(content) {
-                                        saveAs(content, "KakaoImgConv.zip");
+                                        saveAs(content, "카톡테마RES변환.zip");
                                     });
                                 }
                             };
