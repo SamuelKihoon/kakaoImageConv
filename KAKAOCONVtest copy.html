@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>카톡테마 이미지 변환기s</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <style>
+        #kingButton {
+            background-color: #007bff; /* 파란색 */
+            color: white; /* 텍스트 색상 */
+            border: none; /* 테두리 없음 */
+            padding: 10px 20px; /* 내부 여백 */
+            font-size: 16px; /* 글꼴 크기 */
+            cursor: pointer; /* 커서 모양 */
+            border-radius: 4px; /* 둥근 테두리 */
+        }
+        #drop-area {
+            border: 2px dashed #b4e5bc;
+            padding: 20px;
+            text-align: center;
+        }
+        #drop-area.highlight {
+            background-color: #b4e5bc;
+        }
+
+
+
+        
+
+
+
+
+    </style>
+    <style>
+        .form-container {
+            display: inline-block;
+            margin: 10px;
+        }
+        /**
+        #drop-area0, #drop-area1, #drop-area2, #drop-area3, #drop-area4, #drop-area5, #drop-area6, #drop-area7, #drop-area8,
+        #drop-area9, #drop-area10, #drop-area11, #drop-area12, #drop-area13, #drop-area14, #drop-area15, #drop-area16, #drop-area17, #drop-area18, #drop-area19, #drop-area20, #drop-area21, 
+        #drop-area22,#drop-area23,#drop-area24,#drop-area25,#drop-area26,#drop-area27,#drop-area28,#drop-area29,#drop-area30,#drop-area31,#drop-area32,#drop-area33,#drop-area34,#drop-area35,#drop-area36 {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+        } **/
+        .form-container img {
+            display: block;
+            margin: 10px auto;
+        }
+    </style>
+    
+ 
+ 
+
+    <style>
+      .form-container {
+          margin: 20px;
+          padding: 20px;
+          border: 2px dashed #ccc;
+          border-radius: 10px;
+          text-align: center;
+      }
+
+      .form-container.dragover {
+          border-color: #000;
+          background-color: #f0f0f0;
+      }
+
+      .form-container img {
+          display: block;
+          margin: 10px auto;
+      }
+
+      .form-container label {
+          display: block;
+          margin: 10px auto;
+          cursor: pointer;
+          padding: 10px 20px;
+          background-color: #007bff;
+          color: white;
+          border-radius: 5px;
+      }
+  </style>
+    
+</head>
+<body>
+    <strong style="font-size: 30px;"> 카카오톡 테마 이미지 변환기 KHS</strong>
+    <br><br>
+    <button id="kingButton" onclick="downloadAllImages()">The King :: All download</button>
+    <br><br><br>
+
+ 
+    <!-- Form examples -->
+    <div class="form-container">
+        <form id="image-form0">
+            <div id="drop-area0">
+                <input type="file" id="image-input0" multiple>
+                <p>채팅창하단바BG</p>
+                <img src="demores/theme_maintab_cell_image.png" style="width: 130px;">
+                <label for="image-input0">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(0)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form1">
+            <div id="drop-area1">
+                <input type="file" id="image-input1" multiple>
+                <p>스플래시 인트로BG</p>
+                <img src="demores/theme_splash_image.png" style="width: 130px;">
+                <label for="image-input1">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(1)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form2">
+            <div id="drop-area2">
+                <input type="file" id="image-input2" multiple>
+                <p>ChatROOM BG</p>
+                <img src="demores/theme_chatroom_background_image.jpeg" style="width: 130px;">
+                <label for="image-input2">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(2)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form3">
+            <div id="drop-area3">
+                <input type="file" id="image-input3" multiple>
+                <p>친구목록BG_Main</p>
+                <img src="demores/theme_background_image.jpeg" style="width: 130px;">
+                <label for="image-input3">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(3)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form4">
+            <div id="drop-area4">
+                <input type="file" id="image-input4" multiple>
+                <p>PassCODE BG</p>
+                <img src="demores/theme_passcode_background_image.png" style="width: 130px;">
+                <label for="image-input4">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(4)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form5">
+            <div id="drop-area5">
+                <input type="file" id="image-input5" multiple>
+                <p>BT1</p>
+                <img src="demores/theme_maintab_ico_friends_image.png">
+                <label for="image-input5">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(5)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form6">
+            <div id="drop-area6">
+                <input type="file" id="image-input6" multiple>
+                <p>BT1+</p>
+                <img src="demores/theme_maintab_ico_friends_focused_image.png">
+                <label for="image-input6">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(6)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form7">
+            <div id="drop-area7">
+                <input type="file" id="image-input7" multiple>
+                <p>BT2</p>
+                <img src="demores/theme_maintab_ico_chats_image.png">
+                <label for="image-input7">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(7)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form8">
+            <div id="drop-area8">
+                <input type="file" id="image-input8" multiple>
+                <p>BT2+</p>
+                <img src="demores/theme_maintab_ico_chats_focused_image.png">
+                <label for="image-input8">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(8)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form9">
+            <div id="drop-area9">
+                <input type="file" id="image-input9" multiple>
+                <p>BT3</p>
+                <img src="demores/theme_maintab_ico_browse_image.png">
+                <label for="image-input9">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(9)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form10">
+            <div id="drop-area10">
+                <input type="file" id="image-input10" multiple>
+                <p>BT3+</p>
+                <img src="demores/theme_maintab_ico_browse_focused_image.png">
+                <label for="image-input10">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(10)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form11">
+            <div id="drop-area11">
+                <input type="file" id="image-input11" multiple>
+                <p>BT4</p>
+                <img src="demores/theme_maintab_ico_more_image.png">
+                <label for="image-input11">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(11)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form12">
+            <div id="drop-area12">
+                <input type="file" id="image-input12" multiple>
+                <p>BT4+</p>
+                <img src="demores/theme_maintab_ico_more_focused_image.png">
+                <label for="image-input12">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(12)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form13">
+            <div id="drop-area13">
+                <input type="file" id="image-input13" multiple>
+                <p>BT5</p>
+                <img src="demores/theme_maintab_ico_game_image.png">
+                <label for="image-input13">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(13)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form14">
+            <div id="drop-area14">
+                <input type="file" id="image-input14" multiple>
+                <p>BT5+</p>
+                <img src="demores/theme_maintab_ico_game_focused_image.png">
+                <label for="image-input14">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(14)">Upload</button>
+        </form>
+    </div>
+
+    <div class="form-container">
+        <form id="image-form15">
+            <div id="drop-area15">
+                <input type="file" id="image-input15" multiple>
+                <p>BT6</p>
+                <img src="demores/theme_maintab_ico_find_image.png">
+                <label for="image-input14e">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(15)">Upload</button>
+        </form>
+    </div>
+    <div class="form-container">
+        <form id="image-form16">
+            <div id="drop-area16">
+                <input type="file" id="image-input16" multiple>
+                <p>BT6+</p>
+                <img src="demores/theme_maintab_ico_find_focused_image.png">
+                <label for="image-input16">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(16)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form17">
+            <div id="drop-area17">
+                <input type="file" id="image-input17" multiple>
+                <p>BT7</p>
+                <img src="demores/theme_maintab_ico_piccoma_image.png">
+                <label for="image-input17">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(17)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form18">
+            <div id="drop-area18">
+                <input type="file" id="image-input18" multiple>
+                <p>BT7+</p>
+                <img src="demores/theme_maintab_ico_piccoma_focused_image.png">
+                <label for="image-input18">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(18)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form19">
+            <div id="drop-area19">
+                <input type="file" id="image-input19" multiple>
+                <p>BT8 OpenChat</p>
+                <img src="demores/theme_maintab_ico_openchat_image.png">
+                <label for="image-input19">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(19)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form20">
+            <div id="drop-area20">
+                <input type="file" id="image-input20" multiple>
+                <p>BT8+ OpenChat+</p>
+                <img src="demores/theme_maintab_ico_openchat_focused_image.png">
+                <label for="image-input20">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(20)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form21">
+            <div id="drop-area21">
+                <input type="file" id="image-input21" multiple>
+                <p>BT9 Shopping</p>
+                <img src="demores/theme_maintab_ico_shopping_image.png">
+                <label for="image-input21">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(21)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form22">
+            <div id="drop-area22">
+                <input type="file" id="image-input22" multiple>
+                <p>BT9+ Shopping+</p>
+                <img src="demores/theme_maintab_ico_shopping_focused_image.png">
+                <label for="image-input22">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(22)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form23">
+            <div id="drop-area23">
+                <input type="file" id="image-input23" multiple>
+                <p>BT10 View</p>
+                <img src="demores/theme_maintab_ico_view_image.png">
+                <label for="image-input23">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(23)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form24">
+            <div id="drop-area24">
+                <input type="file" id="image-input24" multiple>
+                <p>BT10+ View+</p>
+                <img src="demores/theme_maintab_ico_view_focused_image.png">
+                <label for="image-input24">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(24)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form25">
+            <div id="drop-area25">
+                <input type="file" id="image-input25" multiple>
+                <p>BT11 View</p>
+                <img src="demores/theme_maintab_ico_view_image.png">
+                <label for="image-input25">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(25)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form26">
+            <div id="drop-area26">
+                <input type="file" id="image-input26" multiple>
+                <p>BT11+ View+</p>
+                <img src="demores/theme_maintab_ico_view_focused_image.png">
+                <label for="image-input26">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(26)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form27">
+            <div id="drop-area27">
+                <input type="file" id="image-input27" multiple>
+                <p>BT12 View</p>
+                <img src="demores/theme_maintab_ico_view_image.png">
+                <label for="image-input27">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(27)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form28">
+            <div id="drop-area28">
+                <input type="file" id="image-input28" multiple>
+                <p>BT12+ View+</p>
+                <img src="demores/theme_maintab_ico_view_focused_image.png">
+                <label for="image-input28">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(28)">Upload</button>
+        </form>
+    </div>
+    <div class="form-container">
+        <form id="image-form29">
+            <div id="drop-area29">
+                <input type="file" id="image-input29" multiple>
+                <p>PassCODE1</p>
+                <img src="demores/theme_passcode_01_image.png">
+                <label for="image-input29">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(29)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form30">
+            <div id="drop-area30">
+                <input type="file" id="image-input30" multiple>
+                <p>PassCODE1+</p>
+                <img src="demores/theme_passcode_01_checked_image.png">
+                <label for="image-input30">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(30)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form31">
+            <div id="drop-area31">
+                <input type="file" id="image-input31" multiple>
+                <p>PassCODE2</p>
+                <img src="demores/theme_passcode_02_image.png">
+                <label for="image-input31">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(31)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form32">
+            <div id="drop-area32">
+                <input type="file" id="image-input32" multiple>
+                <p>PassCODE2+</p>
+                <img src="demores/theme_passcode_02_checked_image.png">
+                <label for="image-input32">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(32)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form33">
+            <div id="drop-area33">
+                <input type="file" id="image-input33" multiple>
+                <p>PassCODE3</p>
+                <img src="demores/theme_passcode_03_image.png">
+                <label for="image-input33">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(33)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form34">
+            <div id="drop-area34">
+                <input type="file" id="image-input34" multiple>
+                <p>PassCODE3+</p>
+                <img src="demores/theme_passcode_03_checked_image.png">
+                <label for="image-input34">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(34)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form35">
+            <div id="drop-area35">
+                <input type="file" id="image-input35" multiple>
+                <p>PassCODE4</p>
+                <img src="demores/theme_passcode_04_image.png">
+                <label for="image-input35">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(35)">Upload</button>
+        </form>
+    </div>
+    
+    <div class="form-container">
+        <form id="image-form36">
+            <div id="drop-area36">
+                <input type="file" id="image-input36" multiple>
+                <p>PassCODE4+</p>
+                <img src="demores/theme_passcode_04_checked_image.png">
+                <label for="image-input36">Choose File</label>
+            </div>
+            <button type="button" onclick="uploadImage(36)">Upload</button>
+        </form>
+    </div>
+    
+
+
+
+    <script>
+      document.querySelectorAll('.form-container').forEach((dropArea, index) => {
+          const input = dropArea.querySelector('input[type="file"]');
+
+          dropArea.addEventListener('dragover', (event) => {
+              event.preventDefault();
+              dropArea.classList.add('dragover');
+          });
+
+          dropArea.addEventListener('dragleave', () => {
+              dropArea.classList.remove('dragover');
+          });
+
+          dropArea.addEventListener('drop', (event) => {
+              event.preventDefault();
+              dropArea.classList.remove('dragover');
+
+              const files = event.dataTransfer.files;
+              input.files = files;
+
+              // Optional: Trigger an upload immediately after dropping files
+              // uploadImage(index);
+          });
+      });
+
+      function uploadImage(index) {
+          // Implement your upload logic here
+          const form = document.getElementById(`image-form${index}`);
+          const formData = new FormData(form);
+          // Example: Send the form data using fetch or XMLHttpRequest
+          fetch('/upload', {
+              method: 'POST',
+              body: formData
+          }).then(response => response.json())
+            .then(data => {
+                console.log(data);
+                alert('Upload successful!');
+            }).catch(error => {
+                console.error(error);
+                alert('Upload failed.');
+            });
+      }
+  </script>
+
+  <script>
+
+    document.querySelectorAll('.form-container').forEach((dropArea, index) => {
+      const input = dropArea.querySelector('input[type="file"]');
+      const preview = dropArea.querySelector('img');
+  
+      dropArea.addEventListener('dragover', (event) => {
+          event.preventDefault();
+          dropArea.classList.add('dragover');
+      });
+  
+      dropArea.addEventListener('dragleave', () => {
+          dropArea.classList.remove('dragover');
+      });
+  
+      dropArea.addEventListener('drop', (event) => {
+          event.preventDefault();
+          dropArea.classList.remove('dragover');
+  
+          const files = event.dataTransfer.files;
+          input.files = files;
+  
+          // Display the dragged image in the img tag
+          const reader = new FileReader();
+          reader.onload = function(e) {
+              preview.src = e.target.result;
+          };
+          reader.readAsDataURL(files[0]);
+  
+          // Optional: Trigger an upload immediately after dropping files
+          // uploadImage(index);
+      });
+  });
+
+  
+  </script>
+
+
+    <!-- 아래의 형식대로 나머지 폼들도 추가 -->
+
+    <script>
+        const formIds = [
+            '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '14e', '14e2', '14b', '14b1', '14b2', '14b3', '14b4', '14b5', '14b6', '14b7', '15', '16', '17', '18', '19', '20', '21', '22','23','24','25','26','27','28','29','30','31','32','33','34','35','36'
+        ];
+
+        function downloadAllImages() {
+            var zip = new JSZip();
+            var count = 0;
+            var totalFiles = 0;
+
+            formIds.forEach(function(formId) {
+                var input = document.getElementById('image-input' + formId);
+                if (input && input.files.length > 0) {
+                    totalFiles += input.files.length;
+                    for (var i = 0; i < input.files.length; i++) {
+                        var file = input.files[i];
+                        var reader = new FileReader();
+
+                        reader.onload = function(e) {
+                            var img = new Image();
+                            img.src = e.target.result;
+                            img.onload = function() {
+                                var canvas = document.createElement('canvas');
+                                var ctx = canvas.getContext('2d');
+                                
+                            // 각 이미지의 크기와 이름을 설정합니다.
+                            var width, height, newName;
+                            switch (formId) {
+                                case '0':
+                                    width = 940;
+                                    height = 98;
+                                    newName = 'theme_maintab_cell_image.png';
+                                    break;
+                                case '1':
+                                    width = 200;
+                                    height = 200;
+                                    newName = 'theme_splash_image.png';
+                                    break;
+                                case '2':
+                                    width = 640;
+                                    height = 1240;
+                                    newName = 'theme_chatroom_background_image.png';
+                                    break;
+                                case '3':
+                                    width = 640;
+                                    height = 1280;
+                                    newName = 'theme_background_image.png';
+                                    break;
+                                case '4':
+                                    width = 1440;
+                                    height = 1440;
+                                    newName = 'theme_passcode_background_image.png';
+                                    break;
+                                case '5':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_browse_focused_image.png';
+                                    break;
+                                case '6':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_browse_image.png';
+                                    break;
+                                case '7':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_chats_focused_image.png';
+                                    break;
+                                case '8':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_chats_image.png';
+                                    break;
+                                case '9':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_find_focused_image.png';
+                                    break;
+                                case '10':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_find_image.png';
+                                    break;
+                                case '11':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_friends_focused_image.png';
+                                    break;
+                                case '12':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_friends_image.png';
+                                    break;
+                                case '13':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_game_focused_image.png';
+                                    break;
+                                case '14': //Point
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_game_image.png';
+                                    break;
+                                case '15':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_more_focused_image.png';
+                                    break;
+                                case '16':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_more_image.png';
+                                    break;
+                                case '17':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_openchat_focused_image.png';
+                                    break;
+                                case '18':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_openchat_image.png';
+                                    break;
+                                case '19': //??
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_piccoma_focused_image.png';
+                                    break;
+                                case '20': //??
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_piccoma_image.png';
+                                    break;
+                                case '21':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_shopping_focused_image.png';
+                                    break;
+                                case '22':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_shopping_image.png';
+                                    break;
+                                case '23':
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_view_focused_image.png';
+                                    break;
+                                case '24': 
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_view_image.png';
+                                    break;
+                                case '25': //?? DUPLICATE
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_shopping_focused_image.png';
+                                    break;
+                                case '26': //?? DUPLICATE
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_shopping_image.png';
+                                    break;
+                                case '27': //?? DUPLICATE
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_view_focused_image.png';
+                                    break;
+                                case '28': //?? DUPLICATE
+                                    width = 114;
+                                    height = 114;
+                                    newName = 'theme_maintab_ico_view_image.png';
+                                    break;
+
+                                case '29': //PASSCODE
+                                    width = 132;
+                                    height = 132;
+                                    newName = 'theme_passcode_01_checked_image.png';
+                                    break;
+                                case '30':
+                                    width = 132;
+                                    height = 132;
+                                    newName = 'theme_passcode_01_image.png';
+                                    break;
+                                case '31':
+                                    width = 132;
+                                    height = 132;
+                                    newName = 'theme_passcode_02_checked_image.png';
+                                    break;
+                                case '32':
+                                    width = 132;
+                                    height = 132;
+                                    newName = 'theme_passcode_02_image.png';
+                                    break;
+                                case '33':
+                                    width = 132;
+                                    height = 132;
+                                    newName = 'theme_passcode_03_checked_image.png';
+                                    break;
+                                case '34':
+                                    width = 132;
+                                    height = 132;
+                                    newName = 'theme_passcode_03_image.png';
+                                    break;
+                                case '35':
+                                    width = 132;
+                                    height = 132;
+                                    newName = 'theme_passcode_04_checked_image.png';
+                                    break;
+                                case '36':
+                                    width = 132;
+                                    height = 132;
+                                    newName = 'theme_passcode_04_image.png';
+                                    break;
+                                    // 추가 폼들에 대한 크기와 이름 설정
+                                default:
+                                    width = img.width;
+                                    height = img.height;
+                                    newName = file.name;
+                                    break;
+                            }
+
+                                canvas.width = width;
+                                canvas.height = height;
+                                ctx.drawImage(img, 0, 0, width, height);
+                                var resizedImg = canvas.toDataURL('image/png').split(',')[1];
+                                zip.file(newName, resizedImg, {base64: true});
+                                count++;
+
+                                if (count === totalFiles) {
+                                    zip.generateAsync({type: "blob"}).then(function(content) {
+                                        saveAs(content, "KakaoImgConv.zip");
+                                    });
+                                }
+                            };
+                        };
+                        reader.readAsDataURL(file);
+                    }
+                }
+            });
+
+            if (totalFiles === 0) {
+                alert("No images to download.");
+            }
+        }
+
+        function uploadImage(formIndex) {
+            var input = document.getElementById('image-input' + formIndex);
+            if (input.files.length > 0) {
+                // Handle the file upload here if needed
+                alert('Image uploaded for form ' + formIndex);
+            } else {
+                alert('No image selected for form ' + formIndex);
+            }
+        }
+    </script>
+
+
+ 
+
+ 
+    
+</body>
+</html>
