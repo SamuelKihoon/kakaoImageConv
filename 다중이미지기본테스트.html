@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 변환기</title>
+    <style>
+        #drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            width: 300px;
+            height: 300px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 20px;
+        }
+        #drop-area.hover {
+            border-color: #333;
+        }
+        img {
+            width: 120px;
+            height: 120px;
+            margin: 5px;
+        }
+        #download-btn {
+            display: block;
+            width: 100px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div id="drop-area">
+    <h3>여기에 이미지를 드래그 앤 드롭 하세요</h3>
+    <input type="file" id="fileElem" accept="image/*" style="display:none;" onchange="handleFiles(this.files)">
+    <label for="fileElem">또는 클릭하여 이미지를 선택하세요</label>
+    <div id="gallery"></div>
+</div>
+
+<button id="download-btn" onclick="downloadZip()">THE KING</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script>
+    const dropArea = document.getElementById('drop-area');
+    const gallery = document.getElementById('gallery');
+    let originalImageData = null;
+
+    dropArea.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        dropArea.classList.add('hover');
+    });
+
+    dropArea.addEventListener('dragleave', () => {
+        dropArea.classList.remove('hover');
+    });
+
+    dropArea.addEventListener('drop', (event) => {
+        event.preventDefault();
+        dropArea.classList.remove('hover');
+        handleFiles(event.dataTransfer.files);
+    });
+
+    function handleFiles(files) {
+        const file = files[0]; // 첫 번째 파일만 처리
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                createImage(e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    }
+
+    function createImage(dataUrl) {
+        // 원본 이미지만 표시
+        gallery.innerHTML = ""; // 기존 이미지 제거
+        const img = document.createElement('img');
+        img.src = dataUrl;
+        gallery.appendChild(img);
+        originalImageData = dataUrl; // 이미지 데이터 저장
+    }
+
+    async function downloadZip() {
+        if (!originalImageData) {
+            alert('이미지를 업로드해 주세요.');
+            return;
+        }
+        
+        const zip = new JSZip();
+        for (let i = 0; i < 4; i++) {
+            const canvas = document.createElement('canvas');
+            canvas.width = 120;
+            canvas.height = 120;
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            img.onload = async () => {
+                ctx.drawImage(img, 0, 0, 120, 120);
+                const imgBlob = await (await fetch(canvas.toDataURL('image/png'))).blob();
+                zip.file(`conv${i + 1}.png`, imgBlob);
+                if (i === 3) { // 마지막 이미지일 때 ZIP 다운로드
+                    zip.generateAsync({ type: 'blob' }).then((content) => {
+                        saveAs(content, '변환모음들.zip');
+                    });
+                }
+            };
+            img.src = originalImageData; // 업로드된 이미지
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카톡테마 변환</title>
+</head>
+<body>
+    <h2>File Conversion</h2>
+    <div>
+        <label for="fileInput">Select ZIP file:</label>
+        <input type="file" id="fileInput" accept=".zip">
+    </div>
+    <button onclick="convertAndDownload()">Convert & Download</button>
+
+    <script>
+        function convertAndDownload() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            if (!file) {
+                alert("Please select a file.");
+                return;
+            }
+
+            const zip = new JSZip();
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+                const zipFile = e.target.result;
+                JSZip.loadAsync(zipFile)
+                    .then(function(contents) {
+                        const promises = [];
+                        contents.forEach(function (relativePath, file) {
+                            if (file.dir) return; // Ignore directories
+                            let newName;
+
+                            if (file.name === "bar_1@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_chats_image.png";
+
+
+                                promises.push(new Promise((resolve, reject) => {
+                                    const image = new Image();
+                                    image.onload = function() {
+                                        const canvas = document.createElement('canvas');
+                                        const ctx = canvas.getContext('2d');
+                                        canvas.width = 114;
+                                        canvas.height = 414;
+                                        ctx.drawImage(image, 0, 0, 114, 214); // 이미지 크기 변환
+                                        canvas.toBlob(function(blob) {
+                                            zip.file(newName, blob);
+                                            resolve();
+                                        }, 'image/png');
+                                    };
+                                    image.src = URL.createObjectURL(file);
+                                }));
+
+
+
+                            } else if (file.name === "bar_1@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_chats_focused_image.png";
+
+                                
+                            } else if (file.name === "bar_2@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_find_image.png";
+                            } else if (file.name === "bar_2@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_find_focused_image.png";
+
+
+                            } else if (file.name === "bar_3@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_friends_image.png";
+                            } else if (file.name === "bar_3@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_friends_focused_image.png";
+
+
+                            } else if (file.name === "bar_4@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_more_image.png";
+                            } else if (file.name === "bar_4@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_more_focused_image.png";
+
+
+                            } else if (file.name === "bar_5@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_openchat_image.png";
+                            } else if (file.name === "bar_5@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_openchat_focused_image.png";
+
+
+                            } else if (file.name === "bar_6@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_piccoma_image.png";
+                            } else if (file.name === "bar_6@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_piccoma_focused_image.png";
+
+
+                            } else if (file.name === "bar_7@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_shopping_image.png";
+                            } else if (file.name === "bar_7@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_shopping_focused_image.png";
+
+
+                            } else if (file.name === "bar_8@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_view_image.png";
+                            } else if (file.name === "bar_8@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_view_focused_image.png";
+
+
+                            } else if (file.name === "bar_10@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_game_image.png";
+                            } else if (file.name === "bar_10@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_maintab_ico_game_focused_image.png";
+
+
+
+
+                            } else if (file.name === "chatroomBgImage@3x.png" || file.name === "ELSE.png") { //챗룸 배경화면
+                                newName = "theme_chatroom_background_image.png";
+
+                            } else if (file.name === "chatroomBubble_me@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_chatroom_bubble_me_01_image.9.png";
+                            } else if (file.name === "chatroomBubble_me@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_chatroom_bubble_me_02_image.9.png";
+
+                            } else if (file.name === "chatroomBubble_me2@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_chatroom_bubble_me_01_image.9.png";
+                            } else if (file.name === "chatroomBubble_me2@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_chatroom_bubble_me_02_image.9.png";
+
+                            } else if (file.name === "chatroomBubble_you@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_chatroom_bubble_you_01_image.9.png";
+                            } else if (file.name === "chatroomBubble_you@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_chatroom_bubble_you_02_image.9.png";
+
+                            } else if (file.name === "chatroomBubble_you2@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_chatroom_bubble_you_01_image.9.png";
+                            } else if (file.name === "chatroomBubble_you2@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_chatroom_bubble_you_02_image.9.png";
+
+
+
+                            } else if (file.name === "commonIcoTheme.png" || file.name === "ELSE.png") {
+                                newName = "AFTER_AFTER_AFTER.png";
+
+                            } else if (file.name === "findBtnAddFriend@2x.png" || file.name === "ELSE.png") {
+                                newName = "theme_find_add_friend_button_image.png";
+                            } else if (file.name === "findBtnAddFriend@3x.png" || file.name === "ELSE.png") {
+                                newName = "theme_find_add_friend_button_pressed_image.png";
+
+                            } else if (file.name === "mainBgImage@3x.png") {
+                                newName = "theme_background_image.png";
+
+
+                            } else if (file.name === "maintabBgImage@2x.png") {
+                                newName = "theme_maintab_cell_image.png";
+
+                            } else if (file.name === "maintabBgImage@3x.png") {
+                                newName = "AFTER_AFTER_AFTER.png";
+
+
+
+                            } else if (file.name === "passcodeBgImage@3x.png") {
+                                newName = "theme_passcode_background_image.png";
+
+
+                            } else if (file.name === "passcodeImgCode01@3x.png") {  //패스코드 시작
+                                newName = "theme_passcode_01_image.png";
+                            } else if (file.name === "passcodeImgCode01Selected@3x.png") {
+                                newName = "theme_passcode_01_checked_image.png";
+
+
+                            } else if (file.name === "passcodeImgCode02@3x.png") {
+                                newName = "theme_passcode_02_image.png";
+                            } else if (file.name === "passcodeImgCode02Selected@3x.png") {
+                                newName = "theme_passcode_02_checked_image.png";
+
+
+                            } else if (file.name === "passcodeImgCode03@3x.png") {
+                                newName = "theme_passcode_03_image.png";
+                            } else if (file.name === "passcodeImgCode03Selected@3x.png") {
+                                newName = "theme_passcode_03_checked_image.png";
+
+
+                            } else if (file.name === "passcodeImgCode04@3x.png") {
+                                newName = "theme_passcode_04_image.png";
+                            } else if (file.name === "passcodeImgCode04Selected@3x.png") {
+                                newName = "theme_passcode_04_checked_image.png";
+
+
+
+
+                            } else if (file.name === "passcodeKeypadPressed@3x.png") {
+                                newName = "AFTER_AFTER_AFTER.png";
+
+
+                                
+                            } else if (file.name === "profileImg01@3x.png") {
+                                newName = "theme_profile_01_image.png";
+                            } else if (file.name === "profileImg02@3x.png") {
+                                newName = "theme_profile_02_image.png";
+                            } else if (file.name === "profileImg03@3x.png") {
+                                newName = "theme_profile_03_image.png";
+                            }
+                             else {
+                                newName = file.name; // Keep original name for other files
+                            }
+                            promises.push(file.async('blob').then(function(blob) {
+                                zip.file(newName, blob);
+                            }));
+                        });
+
+
+
+
+                        
+
+                        Promise.all(promises).then(function() {
+                            zip.generateAsync({type:"blob"}).then(function(content) {
+                                saveAs(content, "converted_files.zip");
+                            });
+                        });
+
+
+
+
+                    })
+                    .catch(function(error) {
+                        console.error("Error reading zip file:", error);
+                    });
+            };
+
+            reader.readAsArrayBuffer(file);
+        }
+    </script>
+
+    <!-- JSZip Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <!-- FileSaver Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 변환 및 ZIP 다운로드</title>
+    <style>
+        .drop-area {
+            border: 2px dashed #ccc;
+            border-radius: 10px;
+            width: 300px;
+            height: 150px;
+            margin: 20px auto;
+            text-align: center;
+            padding: 20px;
+        }
+        .drop-area.hover {
+            border-color: #333;
+        }
+        #download-btn {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h3 href="다중이미지기본테스트.html">THE KING : 모두 ZIP 다운로드</h3>
+
+<div id="background-group" class="drop-area">
+    <h4>배경화면 그룹 (640x1280)</h4>
+    <input type="file" id="background-file" accept="image/*" style="display:none;" onchange="handleFile(this.files, 'background')">
+    <label for="background-file">이미지를 선택하거나 여기에 드래그 하세요</label>
+    <button onclick="document.getElementById('background-file').click()">이미지 업로드</button>
+</div>
+
+<div id="passcode-checked-group" class="drop-area">
+    <h4>패스코드 클릭됨 아이콘 그룹 (132x132)</h4>
+    <input type="file" id="passcode-checked-file" accept="image/*" style="display:none;" onchange="handleFile(this.files, 'passcodeChecked')">
+    <label for="passcode-checked-file">이미지를 선택하거나 여기에 드래그 하세요</label>
+    <button onclick="document.getElementById('passcode-checked-file').click()">이미지 업로드</button>
+</div>
+
+<div id="passcode-group" class="drop-area">
+    <h4>패스코드 대기중 아이콘 그룹 (132x132)</h4>
+    <input type="file" id="passcode-file" accept="image/*" style="display:none;" onchange="handleFile(this.files, 'passcode')">
+    <label for="passcode-file">이미지를 선택하거나 여기에 드래그 하세요</label>
+    <button onclick="document.getElementById('passcode-file').click()">이미지 업로드</button>
+</div>
+
+<div id="maintab-focused-group" class="drop-area">
+    <h4>메인탭 클릭됨 아이콘 그룹 (114x114)</h4>
+    <input type="file" id="maintab-focused-file" accept="image/*" style="display:none;" onchange="handleFile(this.files, 'maintabFocused')">
+    <label for="maintab-focused-file">이미지를 선택하거나 여기에 드래그 하세요</label>
+    <button onclick="document.getElementById('maintab-focused-file').click()">이미지 업로드</button>
+</div>
+
+<div id="maintab-group" class="drop-area">
+    <h4>메인탭 대기중 아이콘 그룹 (114x114)</h4>
+    <input type="file" id="maintab-file" accept="image/*" style="display:none;" onchange="handleFile(this.files, 'maintab')">
+    <label for="maintab-file">이미지를 선택하거나 여기에 드래그 하세요</label>
+    <button onclick="document.getElementById('maintab-file').click()">이미지 업로드</button>
+</div>
+
+<button id="download-btn" onclick="downloadZip()">THE KING ZIP 다운로드</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+<script>
+    const groups = {
+        background: {
+            size: { width: 640, height: 1280 },
+            names: ['theme_background_image.png', 'theme_chatroom_background_image.png', 'theme_splash_image.png'],
+            file: null
+        },
+        passcodeChecked: {
+            size: { width: 132, height: 132 },
+            names: ['theme_passcode_01_checked_image.png', 'theme_passcode_02_checked_image.png', 'theme_passcode_03_checked_image.png', 'theme_passcode_04_checked_image.png'],
+            file: null
+        },
+        passcode: {
+            size: { width: 132, height: 132 },
+            names: ['theme_passcode_01_image.png', 'theme_passcode_02_image.png', 'theme_passcode_03_image.png', 'theme_passcode_04_image.png'],
+            file: null
+        },
+        maintabFocused: {
+            size: { width: 114, height: 114 },
+            names: [
+                'theme_maintab_ico_browse_focused_image.png', 'theme_maintab_ico_chats_focused_image.png',
+                'theme_maintab_ico_find_focused_image.png', 'theme_maintab_ico_friends_focused_image.png',
+                'theme_maintab_ico_game_focused_image.png', 'theme_maintab_ico_more_focused_image.png',
+                'theme_maintab_ico_openchat_focused_image.png', 'theme_maintab_ico_piccoma_focused_image.png',
+                'theme_maintab_ico_shopping_focused_image.png', 'theme_maintab_ico_view_focused_image.png'
+            ],
+            file: null
+        },
+        maintab: {
+            size: { width: 114, height: 114 },
+            names: [
+                'theme_maintab_ico_browse_image.png', 'theme_maintab_ico_chats_image.png',
+                'theme_maintab_ico_find_image.png', 'theme_maintab_ico_friends_image.png',
+                'theme_maintab_ico_game_image.png', 'theme_maintab_ico_more_image.png',
+                'theme_maintab_ico_openchat_image.png', 'theme_maintab_ico_piccoma_image.png',
+                'theme_maintab_ico_shopping_image.png', 'theme_maintab_ico_view_image.png'
+            ],
+            file: null
+        }
+    };
+
+    document.querySelectorAll('.drop-area').forEach((dropArea) => {
+        dropArea.addEventListener('dragover', (event) => {
+            event.preventDefault();
+            dropArea.classList.add('hover');
+        });
+
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.classList.remove('hover');
+        });
+
+        dropArea.addEventListener('drop', (event) => {
+            event.preventDefault();
+            dropArea.classList.remove('hover');
+            const group = dropArea.id.replace('-group', '');
+            handleFile(event.dataTransfer.files, group);
+        });
+    });
+
+    
+    function updateGroupUI(group, file) {
+        if (file && file.type.startsWith('image/')) {
+            groups[group].file = file;
+            
+            // 그룹 영역 배경색을 연회색으로 변경
+            document.getElementById(`${group}-group`).style.backgroundColor = '#f0f0f0';
+    
+            // 미리보기 이미지를 표시
+            const imgPreview = document.createElement('img');
+            imgPreview.src = URL.createObjectURL(file);
+            imgPreview.style.width = '50px';  // 이미지 크기 조정
+            imgPreview.style.height = 'auto';   // 비율 유지
+            imgPreview.style.marginTop = '10px';
+    
+            // 이전 미리보기가 있다면 제거
+            const existingPreview = document.querySelector(`#${group}-group img`);
+            if (existingPreview) {
+                existingPreview.remove();
+            }
+    
+            // 미리보기 이미지를 그룹에 추가
+            document.getElementById(`${group}-group`).appendChild(imgPreview);
+        }
+    }
+    
+    function handleFile(files, group) {
+        const file = files[0];
+        updateGroupUI(group, file);
+    }
+    
+    
+    
+
+    async function downloadZip() {
+        const zip = new JSZip();
+
+        for (const groupName in groups) {
+            const group = groups[groupName];
+            if (group.file) {
+                const imgBlob = await processImage(group.file, group.size.width, group.size.height);
+                group.names.forEach(name => zip.file(name, imgBlob));
+            }
+        }
+
+        zip.generateAsync({ type: 'blob' }).then((content) => {
+            saveAs(content, 'THE_KING.zip');
+        });
+    }
+
+    function processImage(file, width, height) {
+        return new Promise((resolve) => {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                const img = new Image();
+                img.onload = () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = width;
+                    canvas.height = height;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(img, 0, 0, width, height);
+                    canvas.toBlob(resolve, 'image/png');
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        });
+    }
+</script>
+
+</body>
+</html>
