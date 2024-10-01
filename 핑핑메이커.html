@@ -1,365 +1,254 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>카톡테마s 이미지 변환기s</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.6.0/jszip.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐치핑핑 커스터마이징</title>
     <style>
-        #kingButton {
-            background-color: #007bff; /* 파란색 */
-            color: white; /* 텍스트 색상 */
-            border: none; /* 테두리 없음 */
-            padding: 10px 20px; /* 내부 여백 */
-            font-size: 16px; /* 글꼴 크기 */
-            cursor: pointer; /* 커서 모양 */
-            border-radius: 4px; /* 둥근 테두리 */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
         }
-        #drop-area {
-            border: 2px dashed #b4e5bc;
-            padding: 20px;
-            text-align: center;
+        canvas {
+            border: 1px solid #000;
+            background-color: white;
         }
-        #drop-area.highlight {
-            background-color: #b4e5bc;
+        #customizationPanel {
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
+            width: 300px;
         }
-
-
-
-        
-        
-
-
-        
-
-
-
-
-    </style>
-    <style>
-        .form-container {
-            display: inline-block;
-            margin: 10px;
+        .tab-buttons {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 10px;
         }
-        /**
-        #drop-area0, #drop-area1, #drop-area2, #drop-area3, #drop-area4, #drop-area5, #drop-area6, #drop-area7, #drop-area8,
-        #drop-area9, #drop-area10, #drop-area11, #drop-area12, #drop-area13, #drop-area14, #drop-area15, #drop-area16, #drop-area17, #drop-area18, #drop-area19, #drop-area20, #drop-area21, 
-        #drop-area22,#drop-area23,#drop-area24,#drop-area25,#drop-area26,#drop-area27,#drop-area28,#drop-area29,#drop-area30,#drop-area31,#drop-area32,#drop-area33,#drop-area34,#drop-area35,#drop-area36 {
-            border: 2px dashed #ccc;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
+        .tab-button {
             cursor: pointer;
-        } **/
-        .form-container img {
+            padding: 10px 20px;
+            background-color: #f1f1f1;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .tab-button:hover, .tab-button.active {
+            background-color: #ddd;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
             display: block;
-            margin: 10px auto;
+        }
+        .color-button, .item-button {
+            width: 40px;
+            height: 40px;
+            border: none;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .color-button {
+            border-radius: 50%;
+        }
+        .item-button img {
+            width: 100%;
+            height: 100%;
+        }
+        .color-input {
+            margin: 5px;
         }
     </style>
-    
- 
- 
-
-    <style>
-      .form-container {
-          margin: 20px;
-          padding: 20px;
-          border: 2px dashed #ccc;
-          border-radius: 10px;
-          text-align: center;
-      }
-
-      .form-container.dragover {
-          border-color: #000;
-          background-color: #f0f0f0;
-      }
-
-      .form-container img {
-          display: block;
-          margin: 10px auto;
-      }
-
-      .form-container label {
-          display: block;
-          margin: 10px auto;
-          cursor: pointer;
-          padding: 10px 20px;
-          background-color: #007bff;
-          color: white;
-          border-radius: 5px;
-      }
-  </style>
-  <style> 
-    .container {
-        border: 3px solid #0b004b;
-        border-radius: 24px;
-        padding: 20px;
-        text-align: center;
-        background-color: #fff; /* Optional: background color inside the border */
-    }
-    .title {
-        font-size: 30px;
-        font-weight: bold;
-    }
-    #kingButton {
-        margin-top: 20px; /* Adjust as needed */
-        padding: 10px 20px;
-        font-size: 16px;
-        cursor: pointer;
-    }
-</style>
-    
 </head>
 <body>
-  <div class="container">
-    <div class="title">카카오톡 테마 이미지 변환기</div>
-    <br><br>
-    <button id="kingButton" onclick="downloadAllImages()">The King :: All download</button>
-    <button id="kingButton" onclick="window.open('PlayBannerMaker.html')" style="background: #0b004b;">플레이 배너 메이커</button>
 
-</div>
+    <h2>캐치핑 커스터마이징</h2>
+    <canvas id="avatarCanvas" width="200" height="400"></canvas>
 
+    <!-- Customization Panel -->
+    <div id="customizationPanel">
 
+        <!-- 탭 버튼 -->
+        <div class="tab-buttons">
+            <button class="tab-button" data-tab="bodyColorsTab">몸통 색상</button>
+            <button class="tab-button" data-tab="hairTab">머리</button>
+            <button class="tab-button" data-tab="headAccessoryTab">머리장식</button>
+            <button class="tab-button" data-tab="handItemTab">손 아이템</button>
+        </div>
 
-    <!-- Form examples -->
-    <div class="form-container">
-      <form id="image-formx">
-          <div id="drsop-areax">
+        <!-- 몸통 색상 탭 -->
+        <div class="tab-content" id="bodyColorsTab">
+            <button class="color-button" style="background-color: #FF0000;" data-color="#FF0000"></button>
+            <button class="color-button" style="background-color: #FFA500;" data-color="#FFA500"></button>
+            <button class="color-button" style="background-color: #FFFF00;" data-color="#FFFF00"></button>
+            <button class="color-button" style="background-color: #008000;" data-color="#008000"></button>
+            <button class="color-button" style="background-color: #0000FF;" data-color="#0000FF"></button>
+            <button class="color-button" style="background-color: #800080;" data-color="#800080"></button>
+            <button class="color-button" style="background-color: #FFC0CB;" data-color="#FFC0CB"></button>
+            <button class="color-button" style="background-color: #000000;" data-color="#000000"></button>
+            <button class="color-button" style="background-color: #32CD32;" data-color="#32CD32"></button>
+            <input class="color-input" type="color" value="#FFFFFF" id="customColor">
+        </div>
 
-            <p>KakaoImg-conv-by-KH</p>
+        <!-- 머리 탭 -->
+        <div class="tab-content" id="hairTab">
+            <!-- 유럽 스타일 머리 -->
+            <p>유럽 스타일 머리</p>
+            <button class="item-button" data-image="euhair1.png"><img src="euhair1.png" alt="유럽머리1"></button>
+            <button class="item-button" data-image="euhair2.png"><img src="euhair2.png" alt="유럽머리2"></button>
+            <!-- 중략 -->
+            <!-- 다른 스타일 머리 그룹도 동일하게 추가 -->
+        </div>
 
+        <!-- 머리장식 탭 -->
+        <div class="tab-content" id="headAccessoryTab">
+            <button class="item-button" data-image="안경.png"><img src="안경.png" alt="안경"></button>
+            <button class="item-button" data-image="영국모자.png"><img src="영국모자.png" alt="영국모자"></button>
+            <!-- 나머지 머리장식 추가 -->
+        </div>
 
-          </div> 
-      </form>
-  </div>
-
-
- 
-    <!-- Form examples -->
-    <div class="form-container">
-        <form id="image-form0">
-            <div id="drop-area0">
-                <input type="file" id="image-input0" multiple>
-                <p>채팅창하단바BG</p>
-                <img src="demores/theme_maintab_cell_image.png" style="width: 130px;">
-                <label for="image-input0">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(0)">Upload</button>
-        </form>
+        <!-- 손 아이템 탭 -->
+        <div class="tab-content" id="handItemTab">
+            <button class="item-button" data-image="item1.png"><img src="item1.png" alt="item1"></button>
+            <button class="item-button" data-image="item2.png"><img src="item2.png" alt="item2"></button>
+            <!-- 나머지 손 아이템 추가 -->
+        </div>
     </div>
 
-    <div class="form-container">
-        <form id="image-form1">
-            <div id="drop-area1">
-                <input type="file" id="image-input1" multiple>
-                <p>스플래시 인트로BG</p>
-                <img src="demores/theme_splash_image.png" style="width: 130px;">
-                <label for="image-input1">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(1)">Upload</button>
-        </form>
-    </div>
+    <button id="saveAvatar">아바타 저장</button>
 
-    <div class="form-container">
-        <form id="image-form2">
-            <div id="drop-area2">
-                <input type="file" id="image-input2" multiple>
-                <p>ChatROOM BG</p>
-                <img src="demores/theme_chatroom_background_image.jpeg" style="width: 130px;">
-                <label for="image-input2">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(2)">Upload</button>
-        </form>
-    </div>
+    <script>
+        const canvas = document.getElementById('avatarCanvas');
+        const ctx = canvas.getContext('2d');
 
-    <div class="form-container">
-        <form id="image-form3">
-            <div id="drop-area3">
-                <input type="file" id="image-input3" multiple>
-                <p>친구목록BG_Main</p>
-                <img src="demores/theme_background_image.jpeg" style="width: 130px;">
-                <label for="image-input3">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(3)">Upload</button>
-        </form>
-    </div>
+        const bodyColorButtons = document.querySelectorAll('.color-button');
+        const hairButtons = document.querySelectorAll('#hairTab .item-button');
+        const headAccessoryButtons = document.querySelectorAll('#headAccessoryTab .item-button');
+        const handItemButtons = document.querySelectorAll('#handItemTab .item-button');
+        const saveButton = document.getElementById('saveAvatar');
+        const customColorInput = document.getElementById('customColor');
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
 
-    <div class="form-container">
-        <form id="image-form4">
-            <div id="drop-area4">
-                <input type="file" id="image-input4" multiple>
-                <p>PassCODE BG</p>
-                <img src="demores/theme_passcode_background_image.png" style="width: 130px;">
-                <label for="image-input4">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(4)">Upload</button>
-        </form>
-    </div>
+        const bodyImageSrc = '몸통.png';  // 미리 제공된 투명한 몸통 이미지 경로
+        let selectedBodyColor = '#FFFFFF';  // 기본 흰색
+        let selectedHairImage = null;
+        let selectedHeadAccessoryImage = null;
+        let selectedHandItemImage = null;
 
-    <div class="form-container">
-        <form id="image-form5">
-            <div id="drop-area5">
-                <input type="file" id="image-input5" multiple>
-                <p>BT1</p>
-                <img src="demores/theme_maintab_ico_friends_image.png">
-                <label for="image-input5">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(5)">Upload</button>
-        </form>
-    </div>
+        function loadImage(src) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                img.crossOrigin = "Anonymous";
+                img.src = src;
+                img.onload = () => resolve(img);
+            });
+        }
 
-    <div class="form-container">
-        <form id="image-form6">
-            <div id="drop-area6">
-                <input type="file" id="image-input6" multiple>
-                <p>BT1+</p>
-                <img src="demores/theme_maintab_ico_friends_focused_image.png">
-                <label for="image-input6">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(6)">Upload</button>
-        </form>
-    </div>
+        async function drawAvatar() {
+            // Clear the canvas
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    <div class="form-container">
-        <form id="image-form7">
-            <div id="drop-area7">
-                <input type="file" id="image-input7" multiple>
-                <p>BT2</p>
-                <img src="demores/theme_maintab_ico_chats_image.png">
-                <label for="image-input7">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(7)">Upload</button>
-        </form>
-    </div>
+            // Draw the body background color
+            ctx.fillStyle = selectedBodyColor;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    <div class="form-container">
-        <form id="image-form8">
-            <div id="drop-area8">
-                <input type="file" id="image-input8" multiple>
-                <p>BT2+</p>
-                <img src="demores/theme_maintab_ico_chats_focused_image.png">
-                <label for="image-input8">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(8)">Upload</button>
-        </form>
-    </div>
+            // Load and draw the body image (투명한 PNG 이미지)
+            const bodyImage = await loadImage(bodyImageSrc);
+            ctx.drawImage(bodyImage, 0, 0, 200, 400);
 
-    <div class="form-container">
-        <form id="image-form9">
-            <div id="drop-area9">
-                <input type="file" id="image-input9" multiple>
-                <p>BT3</p>
-                <img src="demores/theme_maintab_ico_browse_image.png">
-                <label for="image-input9">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(9)">Upload</button>
-        </form>
-    </div>
+            // Load and draw the selected hair type if any
+            if (selectedHairImage) {
+                const hairImage = await loadImage(selectedHairImage);
+                ctx.drawImage(hairImage, 50, 30, 100, 100); // Adjust position based on the hair image
+            }
 
-    <div class="form-container">
-        <form id="image-form10">
-            <div id="drop-area10">
-                <input type="file" id="image-input10" multiple>
-                <p>BT3+</p>
-                <img src="demores/theme_maintab_ico_browse_focused_image.png">
-                <label for="image-input10">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(10)">Upload</button>
-        </form>
-    </div>
+            // Load and draw the selected head accessory if any
+            if (selectedHeadAccessoryImage) {
+                const headAccessoryImage = await loadImage(selectedHeadAccessoryImage);
+                ctx.drawImage(headAccessoryImage, 50, 10, 100, 100); // Adjust position based on the accessory
+            }
 
-    <div class="form-container">
-        <form id="image-form11">
-            <div id="drop-area11">
-                <input type="file" id="image-input11" multiple>
-                <p>BT4</p>
-                <img src="demores/theme_maintab_ico_more_image.png">
-                <label for="image-input11">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(11)">Upload</button>
-        </form>
-    </div>
+            // Load and draw the selected hand item if any
+            if (selectedHandItemImage) {
+                const handItemImage = await loadImage(selectedHandItemImage);
+                ctx.drawImage(handItemImage, 50, 300, 100, 100); // Adjust position based on the item
+            }
+        }
 
-    <div class="form-container">
-        <form id="image-form12">
-            <div id="drop-area12">
-                <input type="file" id="image-input12" multiple>
-                <p>BT4+</p>
-                <img src="demores/theme_maintab_ico_more_focused_image.png">
-                <label for="image-input12">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(12)">Upload</button>
-        </form>
-    </div>
+        // Event listeners for body color buttons
+        bodyColorButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                selectedBodyColor = e.target.dataset.color;
+                drawAvatar();
+            });
+        });
 
-    <div class="form-container">
-        <form id="image-form13">
-            <div id="drop-area13">
-                <input type="file" id="image-input13" multiple>
-                <p>BT5</p>
-                <img src="demores/theme_maintab_ico_game_image.png">
-                <label for="image-input13">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(13)">Upload</button>
-        </form>
-    </div>
+        // Custom color input event listener
+        customColorInput.addEventListener('input', () => {
+            selectedBodyColor = customColorInput.value;
+            drawAvatar();
+        });
 
-    <div class="form-container">
-        <form id="image-form14">
-            <div id="drop-area14">
-                <input type="file" id="image-input14" multiple>
-                <p>BT5+</p>
-                <img src="demores/theme_maintab_ico_game_focused_image.png">
-                <label for="image-input14">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(14)">Upload</button>
-        </form>
-    </div>
+        // Event listeners for hair buttons
+        hairButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                selectedHairImage = e.target.closest('button').dataset.image;
+                drawAvatar();
+            });
+        });
 
-    <div class="form-container">
-        <form id="image-form15">
-            <div id="drop-area15">
-                <input type="file" id="image-input15" multiple>
-                <p>BT6</p>
-                <img src="demores/theme_maintab_ico_find_image.png">
-                <label for="image-input14e">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(15)">Upload</button>
-        </form>
-    </div>
-    <div class="form-container">
-        <form id="image-form16">
-            <div id="drop-area16">
-                <input type="file" id="image-input16" multiple>
-                <p>BT6+</p>
-                <img src="demores/theme_maintab_ico_find_focused_image.png">
-                <label for="image-input16">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(16)">Upload</button>
-        </form>
-    </div>
-    
-    <div class="form-container">
-        <form id="image-form17">
-            <div id="drop-area17">
-                <input type="file" id="image-input17" multiple>
-                <p>BT7</p>
-                <img src="demores/theme_maintab_ico_piccoma_image.png">
-                <label for="image-input17">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(17)">Upload</button>
-        </form>
-    </div>
-    
-    <div class="form-container">
-        <form id="image-form18">
-            <div id="drop-area18">
-                <input type="file" id="image-input18" multiple>
-                <p>BT7+</p>
-                <img src="demores/theme_maintab_ico_piccoma_focused_image.png">
-                <label for="image-input18">Choose File</label>
-            </div>
-            <button type="button" onclick="uploadImage(18)">Upload</button>
+        // Event listeners for head accessory buttons
+        headAccessoryButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                selectedHeadAccessoryImage = e.target.closest('button').dataset.image;
+                drawAvatar();
+            });
+        });
+
+        // Event listeners for hand item buttons
+        handItemButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                selectedHandItemImage = e.target.closest('button').dataset.image;
+                drawAvatar();
+            });
+        });
+
+        // Save button event listener
+        saveButton.addEventListener('click', () => {
+            const link = document.createElement('a');
+            link.download = 'custom_avatar.png';
+            link.href = canvas.toDataURL();
+            link.click();
+        });
+
+        // Tab navigation
+        tabButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+
+                button.classList.add('active');
+                document.getElementById(button.dataset.tab).classList.add('active');
+            });
+        });
+
+        // Initialize the first tab as active
+        tabButtons[0].classList.add('active');
+        tabContents[0].classList.add('active');
+
+        // Initial drawing
+        drawAvatar();
+    </script>
+
+</body>
+</html>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        /button>
         </form>
     </div>
     
