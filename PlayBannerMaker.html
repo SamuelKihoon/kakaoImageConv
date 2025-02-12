@@ -89,15 +89,7 @@
         <a id="downloadLink" download="PlayPanner.png">Download Image</a>
     </div>
 
-    <!-- New Feature: Drag and Drop Image Upload -->
-    <div id="container">
-        <div id="controls">
-            <label for="dropZone">Drag and drop an image to resize to 512x512:</label>
-            <div id="dropZone">Drop image here</div>
-            <a id="downloadLinkResized" download="ResizedImage.png">Download Resized Image</a>
-        </div>
-        <canvas id="resizeCanvas" width="512" height="512" style="display:none;"></canvas>
-    </div>
+ 
 
     <script src="script.js"></script>
 </body>
@@ -171,32 +163,7 @@
     dropZone.addEventListener('dragleave', () => {
         dropZone.style.backgroundColor = '#f0f0f0';
     });
-    
-    dropZone.addEventListener('drop', (event) => {
-        event.preventDefault();
-        dropZone.style.backgroundColor = '#f0f0f0';
-        const file = event.dataTransfer.files[0];
-    
-        if (file && file.type.startsWith('image/')) {
-            const reader = new FileReader();
-            reader.onload = (e) => {
-                const img = new Image();
-                img.onload = () => {
-                    const resizeCanvas = document.getElementById('resizeCanvas');
-                    const ctx = resizeCanvas.getContext('2d');
-                    ctx.clearRect(0, 0, resizeCanvas.width, resizeCanvas.height);
-                    ctx.drawImage(img, 0, 0, resizeCanvas.width, resizeCanvas.height);
-    
-                    const downloadLinkResized = document.getElementById('downloadLinkResized');
-                    downloadLinkResized.href = resizeCanvas.toDataURL('image/png');
-                };
-                img.src = e.target.result;
-            };
-            reader.readAsDataURL(file);
-        } else {
-            alert('Please drop a valid image file.');
-        }
-    });
+     
     
 </script>
 
