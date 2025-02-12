@@ -5,9 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Overlay and Resize</title>
     <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #header {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+        #container {
+            display: flex;
+            width: 800px;
+            height: 600px;
+            border: 1px solid #ccc;
+        }
+        #leftPanel {
+            width: 50%;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        #rightPanel {
+            width: 50%;
+            border-left: 1px solid #ccc;
+        }
         #dropZone {
             width: 300px;
-            height: 200px;
+            height: 150px;
             border: 2px dashed #ccc;
             display: flex;
             align-items: center;
@@ -16,50 +45,47 @@
             margin-bottom: 10px;
             cursor: pointer;
         }
-        #overlaySelect, #previewCanvas {
+        #overlaySelect, #previewCanvas, #downloadButtons {
             margin-bottom: 10px;
         }
         canvas {
             border: 1px solid black;
             display: block;
-            margin-bottom: 10px;
         }
     </style>
 </head>
 <body>
-    <div id="container">
-        <div id="controls">
-            <label for="dropZone">Drag and drop an image to merge with an overlay, then resize to 512x512:</label>
-            <div id="dropZone">Drop image here</div>
-            <select id="overlaySelect">
-                <option value="stack1.png">Overlay 1</option>
-                <option value="stack2.png">Overlay 2</option>
-                <option value="stack3.png">Overlay 3</option>
-                <option value="stack4.png">Overlay 4</option>
-            </select>
-            <canvas id="previewCanvas" width="512" height="512"></canvas>
-            <button id="downloadMerged">Download Merged Image</button>
-            <button id="downloadResized">Download Resized Image</button>
+    <div id="header">
+        <span>이미지 변환기</span>
+        <div>
+            <button>Other Page</button>
+            <button>⬇</button>
         </div>
-        <canvas id="canvas" width="512" height="512" style="display:none;"></canvas>
+    </div>
+    <div id="container">
+        <div id="leftPanel">
+            <label for="dropZone">Drop image here:</label>
+            <div id="dropZone">Drop image here</div>
+            <div>
+                <button value="stack1.png">Stack1</button>
+                <button value="stack2.png">Stack2</button>
+                <button value="stack3.png">Stack3</button>
+                <button value="stack4.png">Stack4</button>
+            </div>
+            <canvas id="previewCanvas" width="512" height="512"></canvas>
+            <div id="downloadButtons">
+                <button id="downloadMerged">Download Merged Image</button>
+                <button id="downloadResized">Download Resized Image</button>
+            </div>
+        </div>
+        <div id="rightPanel"></div>
     </div>
     <script>
         const dropZone = document.getElementById('dropZone');
-        const canvas = document.getElementById('canvas');
         const previewCanvas = document.getElementById('previewCanvas');
-        const ctx = canvas.getContext('2d');
         const previewCtx = previewCanvas.getContext('2d');
-        const overlaySelect = document.getElementById('overlaySelect');
         let uploadedImage = null;
         let overlayImage = new Image();
-        
-        function loadDefaultOverlay() {
-            overlayImage.src = `/demores/${overlaySelect.value}`;
-            overlayImage.onload = () => {
-                previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
-                previewCtx.drawImage(overlayImage, 0, 0, 512, 512);
-            };
-        }
         
         dropZone.addEventListener('dragover', (e) => {
             e.preventDefault();
@@ -85,23 +111,18 @@
             }
         });
 
-        overlaySelect.addEventListener('change', renderPreview);
-
         function renderPreview() {
             previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
-            
             if (uploadedImage) {
                 previewCtx.drawImage(uploadedImage, 0, 0, 512, 512);
             }
-            
-            overlayImage.src = `/demores/${overlaySelect.value}`;
-            overlayImage.onload = () => {
-                previewCtx.drawImage(overlayImage, 0, 0, 512, 512);
-            };
         }
 
         document.getElementById('downloadMerged').addEventListener('click', () => {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            const canvas = document.createElement('canvas');
+            canvas.width = 512;
+            canvas.height = 512;
+            const ctx = canvas.getContext('2d');
             if (uploadedImage) {
                 ctx.drawImage(uploadedImage, 0, 0, 512, 512);
             }
@@ -118,8 +139,6 @@
             link.href = previewCanvas.toDataURL();
             link.click();
         });
-        
-        window.onload = loadDefaultOverlay;
     </script>
 </body>
 </html>
