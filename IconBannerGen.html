@@ -251,7 +251,7 @@
         let overlayImage = new Image();
         
         function loadDefaultOverlay() {
-            overlayImage.src = `/demoress/${overlaySelect.value}`;
+            overlayImage.src = `/iconres/${overlaySelect.value}`;
             overlayImage.onload = () => {
                 previewCtx.clearRect(0, 0, previewCanvas.width, previewCanvas.height);
                 previewCtx.drawImage(overlayImage, 0, 0, 512, 512);
@@ -291,7 +291,7 @@
                 previewCtx.drawImage(uploadedImage, 0, 0, 512, 512);
             }
             
-            overlayImage.src = `/demoress/${overlaySelect.value}`;
+            overlayImage.src = `/iconres/${overlaySelect.value}`;
             overlayImage.onload = () => {
                 previewCtx.drawImage(overlayImage, 0, 0, 512, 512);
             };
