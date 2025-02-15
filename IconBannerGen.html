@@ -153,7 +153,7 @@
                     <option value="stack4.png">TALK</option>
                 </select>
                 <canvas id="previewCanvas" width="512" height="512"></canvas>
-                <!--<button id="downloadMerged">Download Merged Image</button>-->
+                <button id="downloadMerged" >Download Merged Image</button>
                 <button id="downloadResized">이미지 다운로드</button>
             </div>
     
@@ -241,6 +241,10 @@
 
 
     <script>
+        document.getElementById("downloadMerged").style.display = "none";
+
+
+        
         const dropZone = document.getElementById('dropZone');
         const canvas = document.getElementById('canvas');
         const previewCanvas = document.getElementById('previewCanvas');
